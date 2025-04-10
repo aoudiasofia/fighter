@@ -2,7 +2,7 @@
 
 int main() {
     Combattants tab[NBCOMBATTANTS];
-    TechniqueSpeciale tabTech[10]; // Exemple : tableau pour les techniques spéciales
+    TechniqueSpeciale tabTech[NBCOMBATTANTS]; 
 
     // Initialisez les noms des combattants à NULL
     for (int i = 0; i < NBCOMBATTANTS; i++) {
