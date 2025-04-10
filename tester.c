@@ -9,7 +9,7 @@ int main() {
         nomsCombattants[i] = NULL;
     }
 
-    // Chargez les techniques spéciales (vous devez implémenter cette fonction)
+    // Chargez les techniques spéciales
     lireTechniques(tabTech, "TechniquesSpeciales.txt");
 
     // Chargez les combattants depuis un fichier
