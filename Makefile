@@ -1,18 +1,16 @@
-
 PROG = projet
 
-#sources 
-SRC = main.c fonction.c affichege.c //(tout les fichiers qu'on doit compiler );;
-#regle par defaut : compile et execute
+# Sources à compiler
+SRC = tester.c lireCombattant.c lireTechniques.c
+
+# Règle par défaut : compile et exécute
 all: $(PROG)
-  ./$(PROG)
+	./$(PROG)
 
-#compilation du  programme 
+# Compilation du programme
 $(PROG): $(SRC) fichier.h
-    gcc -Wall -o $(PROG) $(SRC)
+	gcc -Wall -o $(PROG) $(SRC)
 
-
-#nettoyage
-
+# Nettoyage des fichiers compilés
 clean: 
-  rm-f $(PROG)
+	rm -f $(PROG)
