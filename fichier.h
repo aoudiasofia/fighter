@@ -16,7 +16,7 @@ typedef enum{
 } Operation;
 
 
- //structure technique spéciales
+ //structure technique spéciale
 typedef struct {
     char nom[50];                     
     float valeur;                      // Valeur ( +30% de vitesse, -20% de défense)
