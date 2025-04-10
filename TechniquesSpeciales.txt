@@ -1,6 +1,6 @@
-Danse-flamme 30 Brûle l'adversaire pendant 3 tours 3 3 2
-Gum Gum Bazooka 90 Frappe élastique puissante sur un ennemi 0 2 2
-Soin gelé 40 Soigne un allié avec un vent de glace 0 2 3
-Armure régénérante 20 Active une armure qui augmente ses défenses pendant 3 tours 3 3 2
-Bomb’œuf 60 Lance un œuf explosif à tous ennemis 0 4 2
-Lumière sacrée 50 Elle invoque la lumière divine qui soigne tous ses alliés de 50 PV 0 5 3
+"Danse-flamme" 30 "Brûle l'adversaire pendant 3 tours" 3 3 2
+"Gum Gum Bazooka" 90 "Frappe élastique puissante sur un ennemi" 0 2 2
+"Soin gelé" 40 "Soigne un allié avec un vent de glace" 0 2 3
+"Armure régénérante" 20 "Active une armure qui augmente ses défenses pendant 3 tours" 3 3 2
+"Bomb’œuf" 60 "Lance un œuf explosif à tous ennemis" 0 4 2
+"Lumière sacrée" 50 "Elle invoque la lumière divine qui soigne tous ses alliés de 50 PV" 0 5 3
