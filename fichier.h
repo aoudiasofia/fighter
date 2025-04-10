@@ -32,7 +32,7 @@ typedef struct{
     int points_de_vie_courants; //verifier si négatifs ou nuls, si KO ne peut plus participer jusqu'à la fin du combat 
     int points_de_vie_max;  //limite en cas de soins
     int attaque; //dégats de base infliger
-    int defense; //calcul pourcentage de réduction de dégats 
+    int defense; // calcul pourcentage de réduction de dégats 
     int vitesse; // pourcentage chances pour éviter un attaque
     TechniqueSpeciale competencesSpeciales; 
 } Combattants;
