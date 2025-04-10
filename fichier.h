@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
+#define NBCOMBATTANTS 6
 
 //énumération des opérations
 typedef enum{
@@ -38,3 +38,5 @@ typedef struct{
 } Combattants;
 
 
+extern char* nomsCombattants[NBCOMBATTANTS]; // déclaration globale pour noms
+extern Combattants tab[NBCOMBATTANTS];       // déclaration globale pour les combattants

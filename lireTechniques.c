@@ -1,6 +1,7 @@
 #include "fichier.h"
 
 
+
 int lireTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
     FILE* f = fopen(nomFichier, "r");
 
@@ -22,3 +23,4 @@ i++;
 fclose(f);
     return i; // nombre de techniques lues
 }
+
