@@ -1,42 +1,39 @@
 
 
-//bibliotheque 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
+#ifndef FICHIER_H
+#define FICHIER_H
 #define NBCOMBATTANTS 6
 
-//énumération des opérations
-typedef enum{
+typedef enum {
     addition,
     soustraction,
     multiplication,
-    divison
+    division
 } Operation;
 
-
- //structure technique spéciale
 typedef struct {
-    char nom[50];                     
-    float valeur;                      // Valeur ( +30% de vitesse, -20% de défense)
-    char description[200];            // Description 
-    int nbToursActifs;                // 0 si instantané
-    int nbToursRecharge;              // temps de recharge ( en nombre de tours)
-    Operation operation;              // type d'opération 
+    char nom[50];
+    float valeur;
+    char description[200];
+    int nbToursActifs;
+    int nbToursRecharge;
+    Operation operation;
 } TechniqueSpeciale;
 
-
-//structure pour les personnages 
-typedef struct{
-    int points_de_vie_courants; //verifier si négatifs ou nuls, si KO ne peut plus participer jusqu'à la fin du combat 
-    int points_de_vie_max;  //limite en cas de soins
-    int attaque; //dégats de base infliger
-    int defense; // calcul pourcentage de réduction de dégats 
-    int vitesse; // pourcentage chances pour éviter un attaque
-    TechniqueSpeciale competencesSpeciales; 
+typedef struct {
+    int points_de_vie_courants;
+    int points_de_vie_max;
+    int attaque;
+    int defense;
+    int agilite; // sur 10
+    int vitesse;
+    TechniqueSpeciale competencesSpeciales;
 } Combattants;
 
+extern char* nomsCombattants[NBCOMBATTANTS];
+extern Combattants tab[NBCOMBATTANTS];
 
-extern char* nomsCombattants[NBCOMBATTANTS]; // déclaration globale pour noms
-extern Combattants tab[NBCOMBATTANTS];       // déclaration globale pour les combattants
+int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier);
+int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char* nomFichier);
+
+#endif
