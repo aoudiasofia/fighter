@@ -15,7 +15,7 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
     int indexTech;
     char nom[50];
 
-    while (fscanf(f, "%49s %d %d %d %d %d %d",
+    while (fscanf(f, "%49s %d %d %d %d %d %d %d",
                   nom,
                   &tab[i].points_de_vie_courants,
                   &tab[i].points_de_vie_max,
