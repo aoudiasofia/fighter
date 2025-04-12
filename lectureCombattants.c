@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "fichier.h"
+
+
 int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char* nomFichier) {
     FILE* f = fopen(nomFichier, "r");
     if (f == NULL) {

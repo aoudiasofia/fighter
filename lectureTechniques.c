@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "fichier.h"
+
+
 int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
     FILE* f = fopen(nomFichier, "r");
     if (f == NULL) {

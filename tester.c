@@ -1,4 +1,7 @@
 #include "fichier.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char* nomsCombattants[NBCOMBATTANTS];
 Combattants tab[NBCOMBATTANTS];
