@@ -1,31 +1,29 @@
 #include "fichier.h"
 
-int main() {
-    Combattants tab[NBCOMBATTANTS];
-    TechniqueSpeciale tabTech[NBCOMBATTANTS]; 
+char* nomsCombattants[NBCOMBATTANTS];
+Combattants tab[NBCOMBATTANTS];
 
-    // Initialisez les noms des combattants à NULL
+int main() {
+    TechniqueSpeciale tabTech[10];
+
+    // Initialisation
     for (int i = 0; i < NBCOMBATTANTS; i++) {
         nomsCombattants[i] = NULL;
     }
 
-    // Chargez les techniques spéciales
-    lireTechniques(tabTech, "TechniquesSpeciales.txt");
+    lectureTechniques(tabTech, "TechniquesSpeciales.txt");
+    lectureCombattants(tab, tabTech, "Combattants.txt");
 
-    // Chargez les combattants depuis un fichier
-    lireCombattants(tab, tabTech, "Combattants.txt");
-
-    // Affichez les combattants
     for (int i = 0; i < NBCOMBATTANTS; i++) {
-        if (nomsCombattants[i] != NULL) {
-            printf("%s -> PV: %d - Technique: %s\n",
-                   nomsCombattants[i], tab[i].points_de_vie_max, tab[i].competencesSpeciales.nom);
-        } else {
-            printf("Combattant %d non initialisé\n", i);
-        }
+        printf("%s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",
+               nomsCombattants[i],
+               tab[i].points_de_vie_max,
+               tab[i].attaque,
+               tab[i].vitesse,
+               tab[i].competencesSpeciales.nom);
     }
 
-    // Libérez la mémoire allouée pour les noms des combattants
+    // Libérer mémoire noms
     for (int i = 0; i < NBCOMBATTANTS; i++) {
         free(nomsCombattants[i]);
     }
