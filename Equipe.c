@@ -137,14 +137,14 @@ Objet objetRouge = genererObjetAleatoire();
 
 // Affichage avec animation
 
-printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n");
+printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n"); //test utilisation couleur et emojis
 viderBuffer(); // Avant d'attendre un vrai appui --> sans le viderBuffer() on ne peut pas appuyer sur la touche entrée
 getchar();     // Attente réelle de la touche
 
 afficherChargement();  // Animation de chargement
 afficherObjet(objetBleu);  // Afficher l'objet de l'équipe bleue
 
-printf("\033[1;31m🔴 Appuie sur Entrée pour afficher l'objet de l'équipe rouge 🔴\033[0m\n");
+printf("\033[1;31m🔴 Appuie sur Entrée pour afficher l'objet de l'équipe rouge 🔴\033[0m\n"); //test utilisation couleur et emojis
 getchar(); // Attendre la pression de la touche Entrée
 
 afficherChargement();  // Animation de chargement
