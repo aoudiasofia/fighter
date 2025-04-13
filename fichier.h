@@ -68,5 +68,6 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
 Objet genererObjetAleatoire();
 void afficherObjet(Objet objet);
 void afficherChargement();
+void viderBuffer();
 
 #endif

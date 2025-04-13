@@ -34,3 +34,9 @@ void afficherChargement() {
     }
     printf("\n"); // Passe à la ligne après l'animation
 }
+
+
+void viderBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}

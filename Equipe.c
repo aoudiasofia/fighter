@@ -97,7 +97,6 @@ int main() {
   } else if (mode==2){
   //Cas 2 :
   //On choisit aléatoirement
-  srand(time(NULL));
   choix3 = rand() % NBCOMBATTANTS;
   choix4 = rand() % NBCOMBATTANTS;
   while (choix3 == choix4) {
@@ -125,7 +124,11 @@ int main() {
 
     //LES OBJETS 
 
-  printf("Dans ce jeu chaque joueur à le droit à un objet bonus, qui lui est attribué aléatoirement \n");
+  printf("Dans ce jeu chaque joueur à le droit à un OBJET BONUS \n");
+  printf("\n");
+    printf("\n");
+    printf("\n");
+
   //On choisit aléatoirement un objet bonus pour chaque équipe
 
 // Déclaration des objets
@@ -135,7 +138,8 @@ Objet objetRouge = genererObjetAleatoire();
 // Affichage avec animation
 
 printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n");
-getchar(); // Attendre la pression de la touche Entrée
+viderBuffer(); // Avant d'attendre un vrai appui --> sans le viderBuffer() on ne peut pas appuyer sur la touche entrée
+getchar();     // Attente réelle de la touche
 
 afficherChargement();  // Animation de chargement
 afficherObjet(objetBleu);  // Afficher l'objet de l'équipe bleue
