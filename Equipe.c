@@ -23,7 +23,7 @@ int main() {
   printf("Mode 2 : 1 joueur contre l'ordinateur\n");
   do {
       printf("Choisissez le mode de jeu : ");
-      scanf("%d", &mode);
+    scanf("%d", &mode);  //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2 
   } while (mode != 1 && mode != 2);
   printf("Vous avez choisi le mode %d\n", mode);
   //FIN CHOIX MODE DE JEU 
