@@ -7,7 +7,7 @@
 #include <unistd.h>  // Pour la fonction sleep()
 
 Combattants equipebleue[2], equiperouge[2];
-
+Equipe equipeBleue, equipeRouge;
 
 int main() {
   //initialisation générateur aléatoire 
@@ -150,7 +150,13 @@ getchar(); // Attendre la pression de la touche Entrée
 afficherChargement();  // Animation de chargement
 afficherObjet(objetRouge);  // Afficher l'objet de l'équipe rouge
 
+equipeBleue.membres[1] = tab[choix1];
+equipeBleue.membres[2] = tab[choix2];
+equipeBleue.objet = objetBleu;
 
+equipeRouge.membres[1] = tab[choix3];
+equipeRouge.membres[2] = tab[choix4];
+equipeRouge.objet = objetRouge;
 
   return 0;
 
