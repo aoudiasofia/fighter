@@ -3,11 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdio.h>
+#include <unistd.h>  // Pour la fonction sleep()
 
 Combattants equipebleue[2], equiperouge[2];
 
 
 int main() {
+  //initialisation générateur aléatoire 
+  srand(time(NULL));
+
+
   // Lecture des données
   TechniqueSpeciale tabTech[10];
   lectureTechniques(tabTech, "TechniquesSpeciales.txt");
@@ -49,7 +55,7 @@ int main() {
   do{
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
   printf("Attention, il ne doit pas être le même que le premier !\n");
-  printf("Choix : ");
+  printf("Choix 2 : ");
   scanf("%d",&choix2);
   } while((choix1==choix2) || (choix2<0 || choix2>=NBCOMBATTANTS));
 
@@ -113,6 +119,35 @@ int main() {
   printf(" %s et %s \n",nomsCombattants[choix1],nomsCombattants[choix2]);
   printf("L'équipe rouge est composée de : ");
   printf(" %s et %s \n",nomsCombattants[choix3],nomsCombattants[choix4]);
-  
+    printf("\n");
+    printf("\n");
+    printf("\n");
+
+    //LES OBJETS 
+
+  printf("Dans ce jeu chaque joueur à le droit à un objet bonus, qui lui est attribué aléatoirement \n");
+  //On choisit aléatoirement un objet bonus pour chaque équipe
+
+// Déclaration des objets
+Objet objetBleu = genererObjetAleatoire();
+Objet objetRouge = genererObjetAleatoire();
+
+// Affichage avec animation
+
+printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n");
+getchar(); // Attendre la pression de la touche Entrée
+
+afficherChargement();  // Animation de chargement
+afficherObjet(objetBleu);  // Afficher l'objet de l'équipe bleue
+
+printf("\033[1;31m🔴 Appuie sur Entrée pour afficher l'objet de l'équipe rouge 🔴\033[0m\n");
+getchar(); // Attendre la pression de la touche Entrée
+
+afficherChargement();  // Animation de chargement
+afficherObjet(objetRouge);  // Afficher l'objet de l'équipe rouge
+
+
+
+  return 0;
 
 }
