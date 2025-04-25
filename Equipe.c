@@ -29,7 +29,7 @@ int main() {
   printf("Mode 2 : 1 joueur contre l'ordinateur\n");
   do {
       printf("Choisissez le mode de jeu : ");
-    scanf("%d", &mode);  //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2 
+    scanf("%d", &mode);  //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2, idée : ajouter cet emoji : 🤦‍♂️
   } while (mode != 1 && mode != 2);
   printf("Vous avez choisi le mode %d\n", mode);
   //FIN CHOIX MODE DE JEU 
@@ -46,6 +46,7 @@ int main() {
   
   do{
   printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
+  printf("Choix 1 : ");
   scanf("%d",&choix1);
   } while(choix1<0 || choix1>=NBCOMBATTANTS);
 
@@ -54,7 +55,7 @@ int main() {
   
   do{
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("Attention, il ne doit pas être le même que le premier !\n");
+  printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
   printf("Choix 2 : ");
   scanf("%d",&choix2);
   } while((choix1==choix2) || (choix2<0 || choix2>=NBCOMBATTANTS));
@@ -80,13 +81,14 @@ int main() {
   //premier choix
   do{
   printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
+  printf("Choix 1 : ");
   scanf("%d",&choix3);
   } while(choix3<0 || choix3>=NBCOMBATTANTS);
   //second choix
   do{
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("Attention, il ne doit pas être le même que le premier !\n");
-  printf("Choix : ");
+  printf("\n ⚠️ Attention, il ne doit pas être le même que le premier !\n");
+  printf("Choix 2 : ");
   scanf("%d",&choix4);
   } while((choix3==choix4) || (choix4<0 || choix4>=NBCOMBATTANTS));
 
@@ -102,9 +104,13 @@ int main() {
   while (choix3 == choix4) {
     choix4 = rand() % NBCOMBATTANTS;
   }
+
+  //On affiche les choix de l'ordinateur
+  printf( "\n");
   printf("L'ordinateur a choisi les combattants suivants :\n");
   printf(" %s\n",nomsCombattants[choix3]);
   printf(" %s\n",nomsCombattants[choix4]);
+  printf("\n");
 
 
     // Affectation maintenant que les choix sont valides
@@ -114,9 +120,9 @@ int main() {
   printf("Vos choix on bien été pris en compte !\n");
   
   //On affiche les équipes
-  printf("L'équipe bleue est composée de : ");
+  printf("\033[1;34m L'Equipe BLEUE \033[0m est composée de : ");
   printf(" %s et %s \n",nomsCombattants[choix1],nomsCombattants[choix2]);
-  printf("L'équipe rouge est composée de : ");
+  printf("\033[1;31m L'Equipe ROUGE \033[0m est composée de : ");
   printf(" %s et %s \n",nomsCombattants[choix3],nomsCombattants[choix4]);
     printf("\n");
     printf("\n");
@@ -124,7 +130,7 @@ int main() {
 
     //LES OBJETS 
 
-  printf("Dans ce jeu chaque joueur à le droit à un OBJET BONUS \n");
+  printf("Dans ce jeu chaque joueur à le droit à un OBJET BONUS 🙌 \n");
   printf("\n");
     printf("\n");
     printf("\n");
