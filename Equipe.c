@@ -34,6 +34,12 @@ int main() {
   printf("Vous avez choisi le mode %d\n", mode);
   //FIN CHOIX MODE DE JEU 
 
+
+  //######## choix niveau de difficulté ########
+
+// a mettre après avoir choisi de prendre l'ordinateur:
+
+
     //EQUIPE BLEUE
     //afficher les combattants 
   printf ("Choisissez le 2 Combattants de l'équipe bleue parmis : \n");

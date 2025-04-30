@@ -38,3 +38,4 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
     fclose(f);
     return i; // retourne le nombre de combattants chargés
 }
+
