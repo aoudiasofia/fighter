@@ -9,6 +9,8 @@
 Combattants equipebleue[2], equiperouge[2];
 Equipe equipeBleue, equipeRouge;
 
+int compteurRecharge[NBCOMBATTANTS] = {0}; // Compteur de recharge pour chaque combattant
+
 int main() {
   //initialisation générateur aléatoire 
   srand(time(NULL));
@@ -21,15 +23,27 @@ int main() {
 
   // Déclaration 
   int mode;
-  int choix1, choix2, choix3, choix4;
+  int choix1 = 0, choix2 = 0, choix3 = 0, choix4 = 0;
 
   // Choix du mode de jeu
   printf("Bienvenue\n");
   printf("Mode 1 : 2 joueurs\n");
   printf("Mode 2 : 1 joueur contre l'ordinateur\n");
+
+
+  //######## choix mode de jeu ########
+ 
   do {
-      printf("Choisissez le mode de jeu : ");
-    scanf("%d", &mode);  //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2, idée : ajouter cet emoji : 🤦‍♂️
+    
+    printf("Choisissez le mode de jeu : ");
+     //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2, idée : ajouter cet emoji : 🤦‍♂️
+  
+    int saisitOK=scanf("%d", &mode);
+    viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+    if (mode != 1 && mode != 2) {
+      printf(" 1 ou 2 🤦 \n");
+    }
+    
   } while (mode != 1 && mode != 2);
   printf("Vous avez choisi le mode %d\n", mode);
   //FIN CHOIX MODE DE JEU 
@@ -38,7 +52,28 @@ int main() {
   //######## choix niveau de difficulté ########
 
 // a mettre après avoir choisi de prendre l'ordinateur:
+int niveau = 0; // Niveau de difficulté de l'ordinateur
 
+if (mode == 2) {
+    printf("Choisissez le niveau de difficulté de l'ordinateur :\n");
+    printf("1 : Noob (attaque aléatoire, pas de technique spéciale)\n");
+    printf("2 : Facile (attaque celui avec le moins de PV, pas de technique spéciale)\n");
+    printf("3 : Moyen (attaque celui avec le moins de PV, utilise la technique spéciale si disponible)\n");
+    do {
+        printf("Entrez le niveau (1, 2 ou 3) : ");
+        int saisitOK = scanf("%d", &niveau);
+        viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+
+        if (saisitOK != 1) {
+            printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+            niveau = 0; // Forcer la répétition de la boucle
+        } else if (niveau < 1 || niveau > 3) {
+            printf("⚠️ Le niveau doit être compris entre 1 et 3.\n");
+        }
+    } while (niveau < 1 || niveau > 3);
+    printf("Vous avez choisi le niveau %d\n", niveau);
+}
+  //######FIN CHOIX NIVEAU DE DIFFICULTE#######
 
     //EQUIPE BLEUE
     //afficher les combattants 
@@ -49,22 +84,41 @@ int main() {
   }
 
   //Premier choix 
-  
-  do{
-  printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("Choix 1 : ");
-  scanf("%d",&choix1);
-  } while(choix1<0 || choix1>=NBCOMBATTANTS);
+ 
+  do {
+    printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
+    printf("Choix 1 : ");
+    int saisitOK1 = scanf("%d", &choix1);
+    viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+
+    if (saisitOK1 != 1) {
+        printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+        choix1 = -1; // Forcer la répétition de la boucle
+    } else if (choix1 < 0 || choix1 >= NBCOMBATTANTS) {
+        printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
+    }
+} while (choix1 < 0 || choix1 >= NBCOMBATTANTS);
 
 
   //second choix 
   
-  do{
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
   printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
-  printf("Choix 2 : ");
-  scanf("%d",&choix2);
-  } while((choix1==choix2) || (choix2<0 || choix2>=NBCOMBATTANTS));
+  do {
+      printf("Choix 2 : ");
+      int saisitOK2 = scanf("%d", &choix2);
+      viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+  
+      if (saisitOK2 != 1) {
+          printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+          choix2 = -1; // Forcer la répétition de la boucle
+      } else if (choix1 == choix2) {
+          printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
+      } else if (choix2 < 0 || choix2 >= NBCOMBATTANTS) {
+          printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
+      }
+  } while ((choix1 == choix2) || (choix2 < 0 || choix2 >= NBCOMBATTANTS));
+
 
     // Affectation maintenant que les choix sont valides
     equipebleue[0] = tab[choix1];
@@ -85,19 +139,41 @@ int main() {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
   }
   //premier choix
-  do{
-  printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("Choix 1 : ");
-  scanf("%d",&choix3);
-  } while(choix3<0 || choix3>=NBCOMBATTANTS);
-  //second choix
-  do{
-  printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("\n ⚠️ Attention, il ne doit pas être le même que le premier !\n");
-  printf("Choix 2 : ");
-  scanf("%d",&choix4);
-  } while((choix3==choix4) || (choix4<0 || choix4>=NBCOMBATTANTS));
 
+  do {
+    printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
+    printf("Choix 1 : ");
+    int saisitOK3 = scanf("%d", &choix3);
+    viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+
+    if (saisitOK3 != 1) {
+        printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+        choix3 = -1; // Forcer la répétition de la boucle
+    } else if (choix3 < 0 || choix3 >= NBCOMBATTANTS) {
+        printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
+    }
+} while (choix3 < 0 || choix3 >= NBCOMBATTANTS);
+
+   
+
+  //second choix
+  printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
+  printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
+  do {
+      printf("Choix 2 : ");
+      int saisitOK4 = scanf("%d", &choix4);
+      viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+  
+      if (saisitOK4 != 1) {
+          printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+          choix4 = -1; // Forcer la répétition de la boucle
+      } else if (choix3 == choix4) {
+          printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
+      } else if (choix4 < 0 || choix4 >= NBCOMBATTANTS) {
+          printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
+      }
+  } while ((choix3 == choix4) || (choix4 < 0 || choix4 >= NBCOMBATTANTS));
+ 
     // Affectation maintenant que les choix sont valides
     equiperouge[0] = tab[choix3];
     equiperouge[1] = tab[choix4];
@@ -136,10 +212,10 @@ int main() {
 
     //LES OBJETS 
 
-  printf("Dans ce jeu chaque joueur à le droit à un OBJET BONUS 🙌 \n");
+  printf("Dans ce jeu chaque joueur à le droit à un OBJET BONUS 🙌 \n");//AJOUTER EXPLIQUATION DES OBJET BONUS 
   printf("\n");
-    printf("\n");
-    printf("\n");
+  printf("\n");
+  printf("\n");
 
   //On choisit aléatoirement un objet bonus pour chaque équipe
 

@@ -4,24 +4,25 @@
 #include <stdlib.h>
 #include <string.h>
 #include "fichier.h"
+#include <unistd.h>  // Pour la fonction sleep()
+
 
 void afficherObjet(Objet objet) {
 
     switch (objet.type) {
         case BOUCLIER:
-            printf("Type : Bouclier\n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
+            printf("Type : Bouclier 🛡️ \n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
             break;
         case POTION:
-            printf("Type : Potion\n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
+            printf("Type : Potion 🧪\n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
             break;
         case TROLL:
-            printf("Type : Troll\n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
+            printf("Type : Troll 🧌 \n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...
             break;
     }
 }
 
-#include <stdio.h>
-#include <unistd.h>  // Pour la fonction sleep()
+
 
 // Fonction pour afficher l'animation de chargement
 void afficherChargement() {
