@@ -38,13 +38,17 @@ int main() {
     printf("Choisissez le mode de jeu : ");
      //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2, idée : ajouter cet emoji : 🤦‍♂️
   
-    int saisitOK=scanf("%d", &mode);
-    viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
-    if (mode != 1 && mode != 2) {
-      printf(" 1 ou 2 🤦 \n");
+     int saisitOK=scanf("%d", &mode);
+     viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+    if (mode != 1 && mode != 2 && saisitOK != 1) {
+        printf("⚠️ Choix invalide ! Veuillez entrer 1 ou 2 🤦 \n");
+    
     }
     
   } while (mode != 1 && mode != 2);
+
+  printf("\n");
+  printf("\n");
   printf("Vous avez choisi le mode %d\n", mode);
   //FIN CHOIX MODE DE JEU 
 
@@ -82,6 +86,7 @@ if (mode == 2) {
   for (int i = 0; i < NBCOMBATTANTS; i++) {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
   }
+  printf("\n");
 
   //Premier choix 
  
@@ -226,9 +231,7 @@ Objet objetRouge = genererObjetAleatoire();
 // Affichage avec animation
 
 printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n"); //test utilisation couleur et emojis
-viderBuffer(); // Avant d'attendre un vrai appui --> sans le viderBuffer() on ne peut pas appuyer sur la touche entrée
 getchar();     // Attente réelle de la touche
-
 afficherChargement();  // Animation de chargement
 afficherObjet(objetBleu);  // Afficher l'objet de l'équipe bleue
 
@@ -238,12 +241,12 @@ getchar(); // Attendre la pression de la touche Entrée
 afficherChargement();  // Animation de chargement
 afficherObjet(objetRouge);  // Afficher l'objet de l'équipe rouge
 
-equipeBleue.membres[1] = tab[choix1];
-equipeBleue.membres[2] = tab[choix2];
+equipeBleue.membres[0] = tab[choix1];
+equipeBleue.membres[1] = tab[choix2];
 equipeBleue.objet = objetBleu;
 
-equipeRouge.membres[1] = tab[choix3];
-equipeRouge.membres[2] = tab[choix4];
+equipeRouge.membres[0] = tab[choix3];
+equipeRouge.membres[1] = tab[choix4];
 equipeRouge.objet = objetRouge;
 
   return 0;
