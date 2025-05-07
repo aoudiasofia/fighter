@@ -1,19 +1,21 @@
+
 #include "fichier.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int essayerUtiliserTechniqueSpeciale(Combattants joueur, int index, int compteurRecharge[], TechniqueSpeciale techniques[]) { //tableau de techniques spéciales, index ; numéro de joueur qui vient de jouer
-    TechniqueSpeciale tech = techniques[index];
 
+int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech) {
     printf("  Technique spéciale de %s : (Rechargée : %d / %d tours)\n", 
-           joueur.nom, compteurRecharge[index], tech.nbToursRecharge);
+           joueur->nom, joueur->competencesSpeciales.jauge, tech.nbToursRecharge);
 
-    if (compteurRecharge[index] >= tech.nbToursRecharge) {
-        printf(" %s peut utiliser %s\n",joueur.nom , tech.nom);
-        compteurRecharge[index] = 0; // reset du compteur
+    if (joueur->competencesSpeciales.jauge >= tech.nbToursRecharge) {
+        printf(" %s peut utiliser %s\n", joueur->nom, tech.nom);
+        joueur->competencesSpeciales.jauge = 0; // reset du compteur
         return 1; // peut utiliser la technique
-        
     } else {
         printf("  Technique pas encore prête\n");
-        compteurRecharge[index]++; // incrémentation
+        joueur->competencesSpeciales.jauge++; // incrémentation
         return 0; // attaque de base
     }
 }

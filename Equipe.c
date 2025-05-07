@@ -9,19 +9,27 @@
 Combattants equipebleue[2], equiperouge[2];
 Equipe equipeBleue, equipeRouge;
 
-int compteurRecharge[NBCOMBATTANTS] = {0}; // Compteur de recharge pour chaque combattant
+
 
 int main() {
   //initialisation générateur aléatoire 
   srand(time(NULL));
 
-
+ 
   // Lecture des données
   TechniqueSpeciale tabTech[10];
   lectureTechniques(tabTech, "TechniquesSpeciales.txt");
   lectureCombattants(tab, tabTech, "Combattants.txt");
 
   // Déclaration 
+  // Initialiser la jauge des techniques spéciales de tous les combattants à 0
+  for (int i = 0; i < NBCOMBATTANTS; i++) {
+  tabTech[i].jauge = 0;
+  }
+  // Initialiser les objets utilisés à 0
+  equipeBleue.objetUtilise = 0;
+  equipeRouge.objetUtilise = 0;
+
   int mode;
   int choix1 = 0, choix2 = 0, choix3 = 0, choix4 = 0;
 
@@ -248,6 +256,31 @@ equipeBleue.objet = objetBleu;
 equipeRouge.membres[0] = tab[choix3];
 equipeRouge.membres[1] = tab[choix4];
 equipeRouge.objet = objetRouge;
+
+
+
+
+//COMBAT
+// Initialiser les jauges et vitesses
+int jauges[4] = {0, 0, 0, 0};
+int vitesses[4];
+vitesses[0] = equipeBleue.membres[0].vitesse;
+vitesses[1] = equipeBleue.membres[1].vitesse;
+vitesses[2] = equipeRouge.membres[0].vitesse;
+vitesses[3] = equipeRouge.membres[1].vitesse;
+
+printf("PLACE AU COMBAT !!!!!\n\n");
+
+int tour = 0;
+// Boucle de combat
+while (1) {
+    printf("\n========== Tour %d ==========\n", ++tour);
+    combat(&equipeBleue, &equipeRouge, mode, niveau, jauges, vitesses);
+    sleep(1); // Attente pour mieux voir les tours
+
+    // Tu peux ajouter ici une condition de victoire comme :
+    // if (estEquipeKO(equipeBleue) || estEquipeKO(equipeRouge)) break;
+}
 
   return 0;
 

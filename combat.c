@@ -1,38 +1,77 @@
- //fonction vitesse qui va choisir le combattant qui va jouer
-//le joueur qui joue est celui qui a la plus grande jauge
-//la jauge est calculée en fonction de la vitesse du combattant
-//la jauge est remise à zéro quand le combattant joue
-// UN JOUEUR VA DONC OMMENCER A JOUER 
-// soit le joueur et l'ordinateur soit le joueur est un humain 
+#include <stdio.h>
+#include <stdlib.h>
+#include "fichier.h"
+
+void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, int* jauges, int* vitesses) {
+  int Combattant = choisirCombattantAJouer(jauges, vitesses, 4);
+    
+    //mode 
+    if (mode==1){ //2 joueurs 
+
+     if (Combattant == -1) {
+      //aucun combattant n'est prêt à jouer
+       return;
+
+    } else if (Combattant == 0) {
+        printf("C'est au tour de %s de jouer.\n", (*bleue).membres[0].nom);
+
+        // Demande si il veut utiliser un objet
+        utiliserObjet(bleue,(*bleue).membres[0], (*bleue).objetUtilise);
+        essayerUtiliserTechniqueSpeciale((*bleue).membres[0], (*bleue).membres[0].competencesSpeciales); //equipe bleue attaque rouge adversiares
+        gererTourHumain((*bleue).membres[0], (*rouge).membres, 2); //equipe bleue attaque rouge adversiares
 
 
-// cas le joueur et u  humain 
+      } else if (Combattant == 1) {
+          printf("C'est au tour de %s de jouer.\n", (*bleue).membres[1].nom);
 
-//actionOrdinateur(Combattants equipeBleue[], Combattants equipeRouge[], int niveau);
+          utiliserObjet(bleue,(*bleue).membres[1], (*bleue).objetUtilise);
+          essayerUtiliserTechniqueSpeciale((*bleue).membres[1], (*bleue).membres[1].competencesSpeciales);
+          gererTourHumain((*bleue).membres[1], (*rouge).membres, 2); //equipe bleue attaque rouge adversiares
 
 
-// cas le joueur est un humain
+       } else if (Combattant == 2) {
+          printf("C'est au tour de %s de jouer.\n", (*rouge).membres[0].nom);
 
-// demander qu joueur qui il veut attaquer
+          utiliserObjet(rouge,(*rouge).membres[0], (*rouge).objetUtilise);
+          essayerUtiliserTechniqueSpeciale((*rouge).membres[0], (*rouge).membres[0].competencesSpeciales);
+          gererTourHumain((*rouge).membres[0], (*bleue).membres, 2); //equipe rouge attaque bleue adversiares
 
-// demander si il veut utiliser une technique spéciale
-// si oui verifier qu'on peut utiliser la technique spéciale
-// sinon utiliser une attaque normale
-//on fait perdre des PV 
-// on verifie que aucune esuipe n'a plus de PV
-// si une equipe n'a plus de PV on affiche que l'equipe a gagné
 
-void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauIA) {
-    // Initialiser les jauges de vitesse des 4 combattants (2 par équipe)
-    // Boucle tant qu'une des deux équipes n'est pas morte
-        // Avancer les jauges en fonction de la vitesse
-        // Trouver qui joue (celui dont la jauge atteint 100)
-        // Si joueur humain :
-            // Proposer attaque normale ou spéciale (si dispo)
-            // Choisir la cible
-        // Si ordi :
-            // Choisir action selon le niveau
-        // Appliquer dégâts
-        // Vérifier si un combattant est KO
-        // Réinitialiser jauge du combattant qui a joué
-}
+        } else if (Combattant == 3){
+            printf("C'est au tour de %s de jouer.\n", (*rouge).membres[1].nom);
+
+            utiliserObjet(rouge,(*rouge).membres[1], (*rouge).objetUtilise);
+            essayerUtiliserTechniqueSpeciale((*rouge).membres[1], (*rouge).membres[1].competencesSpeciales);
+            gererTourHumain((*rouge).membres[1], (*bleue).membres, 2); //equipe rouge attaque bleue adversiares
+          }
+    }
+
+
+
+  if (mode == 2){ //1 joueur contre l'ordinateur
+
+    if (Combattant == -1) {
+      //aucun combattant n'est prêt à jouer
+      return;
+      
+    } else if (Combattant  == 0) {
+        printf("C'est au tour de %s de jouer.\n", (*bleue).membres[0].nom);
+        gererTourHumain((*bleue).membres[0],(*rouge).membres, 2); //equipe bleue attaque rouge adversiares
+
+      } else if (Combattant == 1) {
+          printf("C'est au tour de %s de jouer.\n", (*bleue).membres[1].nom);
+          gererTourHumain((*bleue).membres[1],(*rouge).membres, 2); //equipe bleue attaque rouge adversiares
+
+        } else if (Combattant == 2) {
+          printf("C'est au tour de %s de jouer.\n", (*rouge).membres[0].nom);
+            actionOrdinateur((*rouge).membres[0], (*bleue).membres, niveauOrdinateur); //l'ordinateur joue
+
+          } else if (Combattant == 3) {
+            printf("C'est au tour de %s de jouer.\n", (*rouge).membres[1].nom);
+              actionOrdinateur((*rouge).membres[1], (*bleue).membres, niveauOrdinateur); //l'ordinateur joue
+            }
+  }
+
+}    
+     
+   

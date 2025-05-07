@@ -1,3 +1,10 @@
+
+#include "fichier.h"
+#include "fichier.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 void appliquerDegats(Combattants* cible, int degats) {
     int degatsReels = degats - (*cible).defense;
     if (degatsReels < 0) {

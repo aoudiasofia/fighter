@@ -21,6 +21,7 @@ typedef struct {
     char description[200];
     int nbToursActifs;
     int nbToursRecharge;
+    int jauge;
     Operation operation;
 } TechniqueSpeciale;
 
@@ -57,6 +58,7 @@ typedef struct {
     char nom[50];
     Combattants membres[NBEQUIPES];
     Objet objet;
+    int objetUtilise; // 0 si pas utilisé, 1 si utilisé
 } Equipe;
 
 
@@ -70,5 +72,15 @@ Objet genererObjetAleatoire();
 void afficherObjet(Objet objet);
 void afficherChargement();
 void viderBuffer();
+void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse, int niveau);
+void appliquerDegats(Combattants* cible, int degats);
+void appliquerEffetObjet(Objet objet, Combattants* cible) ;
+int peutUtiliserObjet(Objet objet, Equipe* eq);
+void utiliserObjet(Equipe* eq, Combattants* utilisateur);
+int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants);
+void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, int* jauges, int* vitesses);
+int equipeEstKO(Equipe eq);
+void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires);
+int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech );
 
 #endif
