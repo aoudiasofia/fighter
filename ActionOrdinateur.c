@@ -29,7 +29,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         }
     }
 
-    // Technique spéciale si disponible (niveau 3 uniquement)
+    // Technique spéciale si disponible ( niveau 3 uniquement)
     if (niveau == 3 && essayerUtiliserTechniqueSpeciale(joueurActif, joueurActif->competencesSpeciales) == 1) {
         printf("L'ordinateur utilise sa technique spéciale contre %s !\n", adversaires[cible].nom);
         appliquerDegats(&adversaires[cible], joueurActif->competencesSpeciales.valeur);

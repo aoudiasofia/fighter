@@ -1,7 +1,7 @@
 PROG = projet
 
 # Sources à compiler
-SRC = Equipe.c lectureCombattants.c variables.c lectureTechniques.c genererObjet.c afficheObjet.c actionOrdinateur.c combat.c appliquerDegats.c appliquerEffetObjet.c CombattantJouer.c GererTourHumain.c essayerTechSpe.c equipeKO.c affichage.c
+SRC = Equipe.c lectureCombattants.c variables.c lectureTechniques.c genererObjet.c afficheObjet.c ActionOrdinateur.c combat.c appliquerDegats.c appliquerEffetObjet.c CombattantJouer.c GererTourHumain.c essayerTechSpe.c equipeKO.c affichage.c
 
 # Règle par défaut : compile et exécute
 all: $(PROG)
