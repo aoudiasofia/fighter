@@ -1,4 +1,4 @@
-#define COEF 1.0
+#define COEF 5.0
 #define MAX_JAUGE 10.0
 
 int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) { //tableau avec vitesse de chaque combattants 

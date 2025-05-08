@@ -2,18 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fichier.h"
+#include <unistd.h>
 
 void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires) {
     int choixAction;
     int choixCible;
-
+    printf("\n");
     printf("=== Tour de %s ===", (*joueurActif).nom);
+   
 
     // Choisir une action
     do {
         printf("Choisissez une action :\n");
+        sleep(1);
         printf("1 : Attaque normale\n");
+        sleep(1);
         printf("2 : Technique spéciale\n");
+        sleep(1);
         printf("Votre choix : ");
         int saisieValide = scanf("%d", &choixAction);
         viderBuffer();
@@ -30,6 +35,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
         for (int i = 0; i < nbAdversaires; i++) {
             if (adversaires[i].points_de_vie_courants > 0) {
                 printf("%d : %s (PV : %d)\n", i, adversaires[i].nom, adversaires[i].points_de_vie_courants);
+                sleep(1);
             }
         }
         printf("Votre choix : ");
