@@ -37,7 +37,6 @@ int main() {
 
   // Choix du mode de jeu
 
-
   printf("=============================================\n");
     printf("🎮 %sBienvenue dans le jeu CY-FIGHTERS 🥊%s\n", VIOLET, RESET);
     printf("=============================================\n\n");
@@ -120,8 +119,8 @@ if (mode == 2) {
 
     //EQUIPE BLEUE
     //afficher les combattants 
-  printf ("Choisissez le 2 Combattants de l'équipe bleue parmis : \n");
- 
+  printf ("Choisissez le 2 Combattants de l'équipe bleue 🔵 parmis : \n");
+  printf("\n");
   for (int i = 0; i < NBCOMBATTANTS; i++) {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
     sleep(1); // Pause de 1 seconde 
