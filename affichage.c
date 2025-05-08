@@ -34,7 +34,7 @@ void afficherEtatCombat(Equipe bleue, Equipe rouge) {
 
 // Affiche le début du tour d'un joueur
 void afficherTourJoueur(Combattants* joueur, Equipe* equipe) {
-    printf("\n✨ C'est au tour de %s\n", equipe->nom);
+    printf("\n✨ C'est au tour de %s\n", joueur->nom);
         sleep(1);
     printf("❤️ PV : ");
     afficherBarreDeVie(joueur->points_de_vie_courants, joueur->points_de_vie_max);
