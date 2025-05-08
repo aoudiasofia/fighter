@@ -7,7 +7,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
     int choixAction;
     int choixCible;
 
-    printf("\n\033[1;34m=== Tour de %s ===\033[0m\n", (*joueurActif).nom);
+    printf("=== Tour de %s ===", (*joueurActif).nom);
 
     // Choisir une action
     do {

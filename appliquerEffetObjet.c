@@ -1,6 +1,8 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "fichier.h"
+
 
 void appliquerEffetObjet(Objet objet, Combattants* cible) {
     printf("%s utilise %s : %s\n", (*cible).nom, objet.nom, objet.description);
@@ -44,7 +46,7 @@ int peutUtiliserObjet(Objet objet, Equipe* eq) {
 
     // Vérifier si l'objet est de type TROLL
     if (objet.type == TROLL) {
-        printf("L'objet %s est un Troll et ne peut pas être utilisé.\n", objet.nom);
+  
         return 0; // L'objet ne peut pas être utilisé
     }
 
@@ -56,7 +58,7 @@ int peutUtiliserObjet(Objet objet, Equipe* eq) {
 void utiliserObjet(Equipe* eq, Combattants* utilisateur) {
     int choix;
 
-    if (peutUtiliserObjet((*eq).objet, (*eq).objetUtilise) == 0) {
+    if (peutUtiliserObjet((*eq).objet, eq) == 0) {
         printf("L'objet a déjà été utilisé ou il s'agit d'un TROLL. Vous ne pouvez pas l'utiliser.\n");
         return;
     }

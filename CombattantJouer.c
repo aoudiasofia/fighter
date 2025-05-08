@@ -1,5 +1,5 @@
 #define COEF 1.0
-#define MAX_JAUGE 100.0
+#define MAX_JAUGE 10.0
 
 int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) { //tableau avec vitesse de chaque combattants 
     int index = -1;
@@ -7,7 +7,7 @@ int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) {
 
     //  mise à jour des jauges
     for (int i = 0; i < nbCombattants; i++) {
-        jauges[i] += vitesses[i] * COEF / 100.0;
+        jauges[i] += vitesses[i] * COEF / 10.0;
     }
 
     // trouver le joueur prêt à jouer

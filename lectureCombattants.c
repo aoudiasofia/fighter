@@ -4,6 +4,8 @@
 #include "fichier.h"
 
 
+
+
 int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char* nomFichier) {
     FILE* f = fopen(nomFichier, "r");
     if (f == NULL) {
@@ -15,7 +17,7 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
     int indexTech;
     char nom[50];
 
-    while (fscanf(f, "%49s %d %d %d %d %d %d %d",
+    while (i < NBCOMBATTANTS && fscanf(f, "%49s %d %d %d %d %d %d %d",
                   nom,
                   &tab[i].points_de_vie_courants,
                   &tab[i].points_de_vie_max,
@@ -25,17 +27,24 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
                   &tab[i].vitesse,
                   &indexTech) == 8) {
 
-        // Copie du nom
+        // Copie dans la structure du combattant
+        strcpy(tab[i].nom, nom);
+
+        // Optionnel : pour un affichage global
         nomsCombattants[i] = malloc(strlen(nom) + 1);
         if (nomsCombattants[i]) strcpy(nomsCombattants[i], nom);
 
-        // Copie de la compétence
         tab[i].competencesSpeciales = tabTech[indexTech];
 
         i++;
     }
 
     fclose(f);
-    return i; // retourne le nombre de combattants chargés
+
+    if (i == 0) {
+        printf("Aucun combattant lu depuis le fichier %s.\n", nomFichier);
+    }
+
+    return i;
 }
 

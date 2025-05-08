@@ -78,8 +78,8 @@ void appliquerEffetObjet(Objet objet, Combattants* cible) ;
 int peutUtiliserObjet(Objet objet, Equipe* eq);
 void utiliserObjet(Equipe* eq, Combattants* utilisateur);
 int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants);
-void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, int* jauges, int* vitesses);
-int equipeEstKO(Equipe eq);
+void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float* jauges, int* vitesses);
+int equipeEstKO(Equipe* eq);
 void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires);
 int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech );
 

@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "fichier.h"
 
 void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse, int niveau) {
     int cible = 0;

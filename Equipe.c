@@ -262,7 +262,7 @@ equipeRouge.objet = objetRouge;
 
 //COMBAT
 // Initialiser les jauges et vitesses
-int jauges[4] = {0, 0, 0, 0};
+float jauges[4] = {0, 0, 0, 0};
 int vitesses[4];
 vitesses[0] = equipeBleue.membres[0].vitesse;
 vitesses[1] = equipeBleue.membres[1].vitesse;
@@ -271,17 +271,20 @@ vitesses[3] = equipeRouge.membres[1].vitesse;
 
 printf("PLACE AU COMBAT !!!!!\n\n");
 
-int tour = 0;
-// Boucle de combat
+
+
 while (1) {
-    printf("\n========== Tour %d ==========\n", ++tour);
     combat(&equipeBleue, &equipeRouge, mode, niveau, jauges, vitesses);
     sleep(1); // Attente pour mieux voir les tours
 
-    // Tu peux ajouter ici une condition de victoire comme :
-    // if (estEquipeKO(equipeBleue) || estEquipeKO(equipeRouge)) break;
+    // Vérifiez si une équipe est KO
+    if (equipeEstKO(&equipeBleue)) {
+        printf("L'équipe bleue est KO ! L'équipe rouge gagne !\n");
+        break;
+    }
+    if (equipeEstKO(&equipeRouge)) {
+        printf("L'équipe rouge est KO ! L'équipe bleue gagne !\n");
+        break;
+    }
 }
-
-  return 0;
-
 }
