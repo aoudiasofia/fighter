@@ -6,7 +6,7 @@
 #include <time.h>
 #include "fichier.h"
 
-//fonction qui génère un objet aléatoire
+//fonction qui génère un objet aléatoire 
 
 Objet genererObjetAleatoire() {
     Objet objet;

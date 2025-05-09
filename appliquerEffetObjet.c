@@ -5,7 +5,7 @@
 
 
 void appliquerEffetObjet(Objet objet, Combattants* cible) {
-    printf("%s utilise %s : %s\n", (*cible).nom, objet.nom, objet.description);
+    printf("%s utilise %s : %s \n", (*cible).nom, objet.nom, objet.description);
 
     switch (objet.type) {
         case BOUCLIER:

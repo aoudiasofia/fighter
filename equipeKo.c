@@ -9,5 +9,5 @@ int equipeEstKO(Equipe* eq) {
             return 0; // L'équipe n'est pas KO
         }
     }
-    return 1; // Tous les membres de l'équipe sont KO
+    return 1; // Tous les membres de l'équipe sont KO 
 }

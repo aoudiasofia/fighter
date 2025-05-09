@@ -8,12 +8,6 @@
 
 
 //TECHNIQUES SPECIALES
-typedef enum {
-    addition,
-    soustraction,
-    multiplication,
-    division
-} Operation;
 
 typedef struct {
     char nom[50];
@@ -22,7 +16,6 @@ typedef struct {
     int nbToursActifs;
     int nbToursRecharge;
     int jauge;
-    Operation operation;
 } TechniqueSpeciale;
 
 //strucutre combattants
@@ -72,7 +65,7 @@ Objet genererObjetAleatoire();
 void afficherObjet(Objet objet);
 void afficherChargement();
 void viderBuffer();
-void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse, int niveau);
+void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse,int nbAdversaires, Combattants allies[], int niveau, int nbAllies );
 void appliquerDegats(Combattants* cible, int degats);
 void appliquerEffetObjet(Objet objet, Combattants* cible) ;
 int peutUtiliserObjet(Objet objet, Equipe* eq);
@@ -80,7 +73,8 @@ void utiliserObjet(Equipe* eq, Combattants* utilisateur);
 int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants);
 void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float* jauges, int* vitesses);
 int equipeEstKO(Equipe* eq);
-void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires);
+void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies);
 int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech );
+
 
 #endif

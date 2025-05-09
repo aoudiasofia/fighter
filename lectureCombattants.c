@@ -27,7 +27,7 @@ int lectureCombattants(Combattants* tab, TechniqueSpeciale* tabTech, const char*
                   &tab[i].vitesse,
                   &indexTech) == 8) {
 
-        // Copie dans la structure du combattant
+        // Copie dans la structure du combattant 
         strcpy(tab[i].nom, nom);
 
         // Optionnel : pour un affichage global

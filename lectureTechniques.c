@@ -25,4 +25,3 @@ int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
     fclose(f);
     return i; // retourne le nombre de techniques lues
 }
-

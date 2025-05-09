@@ -180,9 +180,10 @@ if (mode == 2) {
   if (mode == 1){
   //Cas 1 : 
   printf("Rappelons les combattants disponibles : ");
+  printf("\n");
   for (int i = 0; i < NBCOMBATTANTS; i++) {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
-    sleep(1); // Pause de 1 seconde
+    sleep(1); // Pause de 1 seconde 
   }
   printf("\n");
   //premier choix

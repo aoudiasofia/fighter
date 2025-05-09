@@ -18,7 +18,7 @@ int main() {
     lectureCombattants(tab, tabTech, "Combattants.txt");
 
     for (int i = 0; i < NBCOMBATTANTS; i++) {
-        printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,
+        printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s \n",i,
                nomsCombattants[i],
                tab[i].points_de_vie_max,
                tab[i].attaque,

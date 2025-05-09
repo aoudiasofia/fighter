@@ -1,7 +1,7 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-// Définition des couleurs avec les codes ANSI
+// Définition des couleurs avec les codes ANSI 
 #define BLEU  "\033[1;34m"
 #define ROUGE "\033[1;31m"
 #define VERT  "\033[1;32m"

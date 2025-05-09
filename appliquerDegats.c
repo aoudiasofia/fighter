@@ -14,5 +14,5 @@ void appliquerDegats(Combattants* cible, int degats) {
     if ((*cible).points_de_vie_courants < 0) {
         (*cible).points_de_vie_courants = 0;
     }
-    printf("%s subit %d dégâts (PV restants : %d).\n", (*cible).nom, degatsReels, (*cible).points_de_vie_courants);
+    printf("%s subit %d dégâts (PV restants : %d). \n", (*cible).nom, degatsReels, (*cible).points_de_vie_courants);
 }

@@ -5,7 +5,7 @@ int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) {
     int index = -1;
     float maxJauge = 0;
 
-    //  mise à jour des jauges
+    //  mise à jour des jauges 
     for (int i = 0; i < nbCombattants; i++) {
         jauges[i] += vitesses[i] * COEF / 10.0;
     }

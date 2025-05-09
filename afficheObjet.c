@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "fichier.h"
-#include <unistd.h>  // Pour la fonction sleep()
+#include <unistd.h>  // Pour la fonction sleep() 
 
 
 void afficherObjet(Objet objet) {

@@ -1,7 +1,7 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-#include "fichier.h"
+#include "fichier.h" // test
 
 void afficherEquipe(Equipe equipe, char* couleurEquipe);
 void afficherEtatCombat(Equipe bleue, Equipe rouge);

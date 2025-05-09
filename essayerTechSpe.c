@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech) {
     printf("  Technique spéciale de %s : (Rechargée : %d / %d tours)\n", 
            joueur->nom, joueur->competencesSpeciales.jauge, tech.nbToursRecharge);
