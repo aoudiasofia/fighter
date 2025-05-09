@@ -1,5 +1,5 @@
 "Danse-flamme" 30 "Brûle tous les adversaires" 3 3 2
-"Gum Gum Bazooka" 90 "Frappe élastique puissante sur un ennemi" 0 2 2
+"Gum Gum Bazooka" 90 "Frappe élastique puissante sur un ennemi" 0 2 2 
 "Soin gelé" 40 "Soigne un allié avec un vent de glace" 0 2 3
 "Armure" 5 "Active une armure qui augmente ses défenses" 3 3 2
 "Bomb’œuf" 60 "Lance un œuf explosif à tous ennemis" 0 4 2

@@ -186,7 +186,7 @@ if (mode == 2) {
     sleep(1); // Pause de 1 seconde 
   }
   printf("\n");
-  //premier choix
+  //premier choix 
 
   do {
     printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);

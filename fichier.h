@@ -21,7 +21,7 @@ typedef struct {
 //strucutre combattants
 typedef struct {
     char nom[50];
-    int points_de_vie_courants;
+    int points_de_vie_courants; 
     int points_de_vie_max;
     int attaque;
     int defense;

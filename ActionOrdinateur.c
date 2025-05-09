@@ -16,7 +16,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         } else {
             cible = 1;
         }
-        printf("L'ordinateur attaque %s, qui a le moins de PV.\n", adversaires[cible].nom);
+        printf("L'ordinateur attaque %s, qui a le moins de PV. \n", adversaires[cible].nom);
     }
 
     // Utiliser un objet (1 chance sur 3)

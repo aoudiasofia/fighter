@@ -10,7 +10,7 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
   printf("\n");
 
 
-    //mode 
+    //mode  
     if (mode == 1){ //2 joueurs 
 
      if (Combattant == -1) {

@@ -145,7 +145,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
             }
 
         } else {
-            printf("\033[1;33m⚠️ Technique spéciale pas encore prête.\033[0m\n");
+            printf("\033[1;33m⚠️ Technique spéciale pas encore prête.\033[0m\n ");
             choixAction = 1;
         }
 

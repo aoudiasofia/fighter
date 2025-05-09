@@ -3,7 +3,7 @@
 
 int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) { //tableau avec vitesse de chaque combattants 
     int index = -1;
-    float maxJauge = 0;
+    float maxJauge = 0;//
 
     //  mise à jour des jauges 
     for (int i = 0; i < nbCombattants; i++) {

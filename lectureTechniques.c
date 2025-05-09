@@ -17,8 +17,8 @@ int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
                   &techniques[i].valeur,
                   techniques[i].description,
                   &techniques[i].nbToursActifs,
-                  &techniques[i].nbToursRecharge,
-                  (int*)&techniques[i].operation) == 6) {
+                  &techniques[i].nbToursRecharge)
+                   == 5)  {
         i++;
     }
 
