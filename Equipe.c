@@ -146,6 +146,7 @@ if (mode == 2) {
 
 
   //second choix 
+
   printf("\n");
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
   printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
@@ -186,9 +187,11 @@ if (mode == 2) {
     sleep(1); // Pause de 1 seconde 
   }
   printf("\n");
-  //premier choix 
+  printf("Choisissez le 2 Combattants de l'équipe rouge 🔴 parmis : \n");
 
+  //premier choix 
   do {
+    
     printf("Choisissez le premier combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
     printf("\n");
     printf("Choix 1 : ");
@@ -301,7 +304,8 @@ equipeRouge.membres[0] = tab[choix3];
 equipeRouge.membres[1] = tab[choix4];
 equipeRouge.objet = objetRouge;
 
-
+sleep(6); // Pause de 2 secondes pour laisser le temps de lire
+system("clear");// Effacer l'écran
 
 
 //COMBAT
@@ -313,7 +317,7 @@ vitesses[1] = equipeBleue.membres[1].vitesse;
 vitesses[2] = equipeRouge.membres[0].vitesse;
 vitesses[3] = equipeRouge.membres[1].vitesse;
 
-printf("PLACE AU COMBAT !!!!!\n\n");
+printf("%sMAINTENANT PLACE AU COMBAT !!!!!%s\n",VIOLET, RESET);
 sleep(2);
 
 while (1) {
@@ -330,4 +334,5 @@ while (1) {
         break;
     }
 }
+
 }

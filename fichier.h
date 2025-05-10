@@ -75,6 +75,6 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
 int equipeEstKO(Equipe* eq);
 void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies);
 int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech );
-
-
+void afficherOptions();
+int choisirAction();
 #endif

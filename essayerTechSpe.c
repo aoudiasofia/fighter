@@ -14,7 +14,7 @@ int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech
         return 1; // peut utiliser la technique
     } else {
         printf("  Technique pas encore prête\n");
-        joueur->competencesSpeciales.jauge++; // incrémentation
+        joueur->competencesSpeciales.jauge ++; // incrémentation
         return 0; // attaque de base
     }
 }

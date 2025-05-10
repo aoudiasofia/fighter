@@ -3,33 +3,48 @@
 #include <stdlib.h>
 #include "fichier.h"
 #include <unistd.h>
+#include <string.h> 
 
+//ajouter les nouvelles fonctions dans le fichier.h
+
+void afficherOptions() {
+    printf("Choisissez une action :\n");
+    sleep(1);
+    printf("1 : Attaque normale\n");
+    sleep(1);
+    printf("2 : Technique spéciale\n");
+    sleep(1);
+}
+
+int choisirAction() {
+    int choixAction = 0;
+    int saisieValide;
+
+    do {
+        afficherOptions();
+        printf("Votre choix : ");
+        saisieValide = scanf("%d", &choixAction);
+        viderBuffer();
+
+        if (saisieValide != 1 || choixAction < 1 || choixAction > 2) {
+            printf("\033[1;31m⚠️ Choix invalide. Veuillez entrer 1 ou 2.\033[0m\n");
+            choixAction = 0; // Réinitialise pour forcer une nouvelle saisie
+        }
+    } while (choixAction < 1 || choixAction > 2);
+
+    return choixAction;
+}
 
 void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies) {
     int choixAction;
     int choixCible;
     printf("\n");
     printf("=== Tour de %s ===", (*joueurActif).nom);
-   
+    printf("\n");
 
     // Choisir une action
-    do {
-        printf("Choisissez une action :\n");
-        sleep(1);
-        printf("1 : Attaque normale\n");
-        sleep(1);sleep(1);
-        printf("2 : Technique spéciale\n");
-        sleep(1);
-        printf("Votre choix : ");
-        int saisieValide = scanf("%d", &choixAction);
-        viderBuffer();
-
-        if (saisieValide != 1 || choixAction < 1 || choixAction > 2) {
-            printf("\033[1;31m⚠️ Choix invalide. Veuillez entrer 1 ou 2.\033[0m\n");
-            choixAction = 0;
-        }
-    } while (choixAction < 1 || choixAction > 2);
-
+    int choixAction = choisirAction();
+    
     // Choisir une cible
     do {
         if (choixAction == 1){
@@ -56,7 +71,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
     if (choixAction == 2) { //techniques spéciales
         if (essayerUtiliserTechniqueSpeciale(joueurActif, (*joueurActif).competencesSpeciales)) {
         // 1er cas : dracaufeu
-            if (joueurActif->nom == "Dracaufeu") {
+            if (strcmp(joueurActif->nom, "Dracaufeu") == 0)  {
             printf("Vous allez utiliser la technique spéciale de 🔥🐉 Dracaufeu : Danse flamme 🕺 !\n");
             printf("La propagation du feu brûle tous les ennemis !\n");
                 for (int i=0; i<nbAdversaires; i++){
@@ -68,7 +83,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
             }   
 
         // 2eme cas : Luffy
-            } else if (joueurActif->nom == "Luffy") {
+            } else if (strcmp(joueurActif->nom, "Luffy") == 0)  {
                 printf("Vous allez utiliser la technique spéciale de 🏴‍☠️ Luffy : Gum Gum Bazooka !\n");
                 printf("Luffy attaque avec son poing élastique 👊 !\n");
                 //choix de la cible
@@ -80,11 +95,14 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                 }
                 printf("Votre choix : ");
                 int saisieValide = scanf("%d", &choixCible);
-                viderBuffer();
+                if (saisieValide != 1) {
+                    printf("Entrée invalide.\n");
+                    viderBuffer();
+                }
                 appliquerDegats(&adversaires[choixCible], joueurActif->competencesSpeciales.valeur);
 
             //cas de Elsa
-            } else if (joueurActif->nom == "Elsa"){
+            } else if (strcmp(joueurActif->nom, "Elsa") == 0) {
                 printf("Vous allez utiliser la technique spéciale de ❄️👑 Elsa : Soin Gelé !\n");
                 printf("Elsa soigne un allié avec un vent de glace !\n");   
                 //choix de la cible
@@ -103,13 +121,13 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                     }
                 }
             // cas de Iron man
-            } else if (joueurActif->nom == "IronMan"){
+            } else if (strcmp(joueurActif->nom, "ironMan") == 0) {
                 printf("Vous allez utiliser la technique spéciale de 🤖 IronMan : Armure 🛡️\n");
                 printf("IronMan augmente sa défense\n");
                 joueurActif->defense +=  joueurActif->competencesSpeciales.valeur;
                     
             //cas de Yoshi
-            } else if (joueurActif->nom == "Yoshi"){
+            } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {
                 printf("Vous allez utiliser la technique spéciale de 🦖🍄 Yoshi : Bomb'oeuf\n");
                 printf("Yoshi lance des oeufs explosifs a tous ses ennemis\n");
                 for (int i=0; i<nbAdversaires; i++){
@@ -120,7 +138,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                 }
 
             //cas de Zelda
-            } else if (joueurActif->nom == "Zelda"){
+            } else if (strcmp(joueurActif->nom, "Zelda") == 0) {
                 printf("Vous allez utiliser la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
                 printf("Zelda invoque la lumière divine qui soigne toute son équipe \n");
                 

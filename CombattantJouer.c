@@ -1,16 +1,21 @@
-#define COEF 5.0
-#define MAX_JAUGE 10.0
+#define COEF 10.0
+#define MAX_JAUGE 90.0
 
-int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) { //tableau avec vitesse de chaque combattants 
+int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) {
     int index = -1;
-    float maxJauge = 0;//
+    float maxJauge = 0.0;
 
-    //  mise à jour des jauges 
+    // Mise à jour des jauges
     for (int i = 0; i < nbCombattants; i++) {
-        jauges[i] += vitesses[i] * COEF / 10.0;
+        if (vitesses[i] > 0) { // Vérifie que la vitesse est positive
+            jauges[i] += vitesses[i] * COEF / 10.0;
+            if (jauges[i] > MAX_JAUGE) {
+                jauges[i] = MAX_JAUGE; // Limite la jauge à MAX_JAUGE
+            }
+        }
     }
 
-    // trouver le joueur prêt à jouer
+    // Trouver le joueur prêt à jouer
     for (int i = 0; i < nbCombattants; i++) {
         if (jauges[i] >= MAX_JAUGE && jauges[i] > maxJauge) {
             maxJauge = jauges[i];
@@ -18,9 +23,9 @@ int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) {
         }
     }
 
-    // remise à zéro
+    // Remise à zéro ou conservation de l'excès
     if (index != -1) {
-        jauges[index] = 0;
+        jauges[index] -= MAX_JAUGE; // Conserve l'excès de jauge
     }
 
     return index;

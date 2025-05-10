@@ -20,7 +20,7 @@ void afficherEquipe(Equipe equipe, char* couleurEquipe) {
             equipe.membres[i].agilite,
             equipe.membres[i].competencesSpeciales.nom
         );
-        sleep(1);
+    
     }
     printf("============================================\n");
     sleep(2);
@@ -48,7 +48,7 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
     sleep(1);
     printf("1️⃣  Attaquer un adversaire\n");
     sleep(1);
-    if (joueur->competencesSpeciales.jauge >= 100) {
+    if (essayerUtiliserTechniqueSpeciale(joueur, joueur->competencesSpeciales)) {
         printf("2️⃣  Utiliser la technique spéciale \"%s\" (%s)\n", joueur->competencesSpeciales.nom, joueur->competencesSpeciales.description);
         sleep(1);
     } else {
