@@ -5,12 +5,9 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes 
 
 ---
 ## 🤝 Collaborateurs
-
-    AOUDIA Sofia
-
-    PHILIPPOT Lucie
-
-    LECHEVALLIER Morgan
+[**AOUDIA Sofia**](https://github.com/aoudiasofia)
+- [**PHILIPPOT Lucie**](https://github.com/luciephilippot)
+- [**LECHEVALLIER Morgan**](https://github.com/morganlechevallier)
 
 
 ## 🚀 Fonctionnalités
@@ -24,8 +21,6 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes 
   - Utilisez des attaques normales ou des techniques spéciales pour vaincre vos adversaires.
 - **Objets bonus mystères 🎁** :
   - Chaque équipe dispose d'un objet bonus pour renverser le cours du combat.
-- **Animations immersives** :
-  - Interface colorée et dynamique pour une meilleure expérience utilisateur.
 
 ---
 
@@ -59,7 +54,7 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes 
 
 ### Prérequis
 - Un compilateur C (comme `gcc`).
-- Un terminal compatible avec les séquences ANSI pour les couleurs et animations.
+- Un terminal compatible avec les séquences ANSI pour les couleurs.
 
 ### Étapes
 
@@ -112,13 +107,13 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes 
 
 ## 📜 Règles du jeu
 
-    Chaque joueur choisit 2 combattants.
+-  Chaque joueur choisit 2 combattants.
 
-    Chaque équipe dispose d'un objet bonus mystère.
+- Chaque équipe dispose d'un objet bonus mystère.
 
-    Les jauges de vitesse déterminent l'ordre des tours.
+- Les jauges de vitesse déterminent l'ordre des tours.
 
-    Le but : mettre l'équipe adverse K.O.
+- Le but : mettre l'équipe adverse K.O.
 
 
 
