@@ -18,6 +18,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
        return;
 
     } else if (Combattant == 0) {
+      if (bleue->membres[0].points_de_vie_courants <= 0) {
+        printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", bleue->membres[0].nom);
+        return;
+      }
       afficherEtatCombat(*bleue, *rouge);
       afficherTourJoueur(&bleue->membres[0], bleue);
       afficherActionsPossibles(&bleue->membres[0], bleue);
@@ -28,6 +32,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
         
 
       } else if (Combattant == 1) {
+        if (bleue->membres[1].points_de_vie_courants <= 0) {
+          printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", bleue->membres[1].nom);
+          return;
+        }
         afficherEtatCombat(*bleue, *rouge);
         afficherTourJoueur(&bleue->membres[1], bleue);
         afficherActionsPossibles(&bleue->membres[1], bleue);
@@ -37,6 +45,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
           gererTourHumain(&(*bleue).membres[1], (*rouge).membres, 2, (*bleue).membres, 2); // équipe bleue attaque rouge
 
        } else if (Combattant == 2) {
+        if (rouge->membres[0].points_de_vie_courants <= 0) {
+          printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", rouge->membres[0].nom);
+          return;
+        }
         afficherEtatCombat(*bleue, *rouge);
         afficherTourJoueur(&rouge->membres[0], rouge);
         afficherActionsPossibles(&rouge->membres[0], rouge);
@@ -46,6 +58,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
           gererTourHumain(&(*rouge).membres[0], (*bleue).membres, 2, (*rouge).membres, 2); // équipe rouge attaque bleue
 
         } else if (Combattant == 3){
+          if (rouge->membres[1].points_de_vie_courants <= 0) {
+            printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", rouge->membres[1].nom);
+            return;
+          }
           afficherEtatCombat(*bleue, *rouge);
           afficherTourJoueur(&rouge->membres[1], rouge);
           afficherActionsPossibles(&rouge->membres[1], rouge);
@@ -64,6 +80,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
       return;
       
     } else if (Combattant  == 0) {
+      if (bleue->membres[0].points_de_vie_courants <= 0) {
+        printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", bleue->membres[0].nom);
+        return;
+      }
       afficherEtatCombat(*bleue, *rouge);
       afficherTourJoueur(&bleue->membres[0], bleue);
       afficherActionsPossibles(&bleue->membres[0], bleue);
@@ -71,6 +91,10 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
     gererTourHumain(&(*bleue).membres[0], (*rouge).membres, 2, (*bleue).membres, 2); // équipe bleue attaque rouge
 
       } else if (Combattant == 1) {
+        if (bleue->membres[1].points_de_vie_courants <= 0) {
+          printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", bleue->membres[1].nom);
+          return;
+        }
         afficherEtatCombat(*bleue, *rouge);
         afficherTourJoueur(&bleue->membres[1], bleue);
         afficherActionsPossibles(&bleue->membres[1], bleue);
@@ -78,19 +102,27 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
       gererTourHumain(&(*bleue).membres[1], (*rouge).membres, 2, (*bleue).membres, 2); // équipe bleue attaque rouge
 
         } else if (Combattant == 2) {
+          if (rouge->membres[0].points_de_vie_courants <= 0) {
+            printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", rouge->membres[0].nom);
+            return;
+          }
             afficherEtatCombat(*bleue, *rouge);
             afficherTourJoueur(&rouge->membres[0], rouge);
             afficherActionsPossibles(&rouge->membres[0], rouge);
             actionOrdinateur(&(*rouge).membres[0], rouge,bleue, 2,(*rouge).membres, niveauOrdinateur, 1); //l'ordinateur joue
 
           } else if (Combattant == 3) {
+            if (rouge->membres[1].points_de_vie_courants <= 0) {
+              printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", rouge->membres[1].nom);
+              return;
+            }
             afficherEtatCombat(*bleue, *rouge);
             afficherTourJoueur(&rouge->membres[1], rouge);
             afficherActionsPossibles(&rouge->membres[1], rouge);
             actionOrdinateur(&(*rouge).membres[1], rouge,bleue, 2,(*rouge).membres, niveauOrdinateur, 1);
           }
   }
-  sleep(7); // Pause de 2 secondes pour laisser le temps de lire
+  sleep(6); // Pause pour laisser le temps de lire
   system("clear");// Effacer l'écran
 
 }    

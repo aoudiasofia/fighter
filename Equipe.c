@@ -38,7 +38,8 @@ int main() {
   // Choix du mode de jeu
 
   printf("=============================================\n");
-    printf("🎮 %sBienvenue dans le jeu CY-FIGHTERS 🥊%s\n", VIOLET, RESET);
+    printf("🎮 %sBienvenue dans le jeu CY-FIGHTERS 🥊%s\n",VIOLET , RESET);
+   
     printf("=============================================\n\n");
     sleep(1); // Pause de 1 seconde pour l'effet d'animation
 
@@ -232,11 +233,13 @@ if (mode == 2) {
   } else if (mode==2){
   //Cas 2 :
   //On choisit aléatoirement
-  choix3 = rand() % NBCOMBATTANTS;
-  choix4 = rand() % NBCOMBATTANTS;
-  while (choix3 == choix4) {
+  do{
+    choix3 = rand() % NBCOMBATTANTS;
+  } while (choix3 == choix1 || choix3 == choix2);
+  do{
     choix4 = rand() % NBCOMBATTANTS;
-  }
+  } while (choix4 == choix1 || choix4 == choix2 || choix3 == choix4);
+  
 
   //On affiche les choix de l'ordinateur
   printf( "\n");
