@@ -1,11 +1,11 @@
 # fighter
 # CY-FIGHTERS 🥊
 
-Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes s'affrontent pour la victoire ultime ! 🎮
+Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent pour la victoire ultime ! 🎮
 
 ---
 ## 🤝 Collaborateurs
-[**AOUDIA Sofia**](https://github.com/aoudiasofia)
+- [**AOUDIA Sofia**](https://github.com/aoudiasofia)
 - [**PHILIPPOT Lucie**](https://github.com/luciephilippot)
 - [**LECHEVALLIER Morgan**](https://github.com/morganlechevallier)
 
@@ -87,22 +87,22 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat stratégique où deux équipes 
 
 1. Choisissez un mode de jeu :
 
-    Mode 1 : 2 joueurs.
+    - Mode 1 : 2 joueurs.
 
-    Mode 2 : 1 joueur contre l'ordinateur.
+    - Mode 2 : 1 joueur contre l'ordinateur.
 
 2. Sélectionnez vos combattants :
 
-    Chaque joueur choisit 2 combattants parmi une liste.
+    - Chaque joueur choisit 2 combattants parmi une liste.
 
 3. Combattez ! :
 
-    Utilisez des attaques normales ou des techniques spéciales.
+    - Utilisez des attaques normales ou des techniques spéciales.
 
-    Exploitez les objets bonus pour prendre l'avantage.
+    - Exploitez les objets bonus pour prendre l'avantage.
 
 3. Gagnez :
-    Mettez l'équipe adverse K.O. pour remporter la victoire.
+   -  Mettez l'équipe adverse K.O. pour remporter la victoire.
 
 
 ## 📜 Règles du jeu
