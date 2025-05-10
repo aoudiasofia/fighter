@@ -48,11 +48,14 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
     sleep(1);
     printf("1️⃣  Attaquer un adversaire\n");
     sleep(1);
-    if (essayerUtiliserTechniqueSpeciale(joueur, joueur->competencesSpeciales)) {
+    if (joueur != NULL && essayerUtiliserTechniqueSpeciale(joueur)) {
+        printf("  Technique spéciale de %s : (Rechargée : %d / %d tours)\n", 
+            joueur->nom, joueur->competencesSpeciales.jauge, joueur->competencesSpeciales.nbToursRecharge);
+ 
         printf("2️⃣  Utiliser la technique spéciale \"%s\" (%s)\n", joueur->competencesSpeciales.nom, joueur->competencesSpeciales.description);
         sleep(1);
     } else {
-        printf("⛔ Technique spéciale pas encore disponible (%d%%)\n", joueur->competencesSpeciales.jauge);
+        printf("⛔ Technique spéciale pas encore disponible \n");
         sleep(1);
     }
     if (equipe->objetUtilise == 0) {

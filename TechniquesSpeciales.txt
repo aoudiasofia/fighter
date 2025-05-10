@@ -1,6 +1,6 @@
-"Danse-flamme" 30 "Brûle tous les adversaires" 3 2
-"Gum Gum Bazooka" 90 "Frappe élastique puissante sur un ennemi" 2 2
-"Soin gelé" 40 "Soigne un allié avec un vent de glace" 2 3
-"Armure" 5 "Active une armure qui augmente ses défenses" 3 2
-"Bomb’œuf" 60 "Lance un œuf explosif à tous ennemis" 4 2
-"Lumière sacrée" 30 "Elle invoque la lumière divine qui soigne toute son equipe" 5 3
+"Danse-flamme" 30 "Brûle tous les adversaires" 3 0 0
+"Gum Gum Bazooka" 90 "Frappe élastique puissante sur un ennemi" 2 0 0
+"Soin gelé" 40 "Soigne un allié avec un vent de glace" 2 0 0
+"Armure" 5 "Active une armure qui augmente ses défenses" 3 0 0
+"Bomb’œuf" 60 "Lance un œuf explosif à tous ennemis" 4 0 0
+"Lumière sacrée" 30 "Elle invoque la lumière divine qui soigne toute son equipe" 5 0 0

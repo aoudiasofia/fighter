@@ -12,12 +12,13 @@ int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
     }
 
     int i = 0;
-    while (fscanf(f, " \"%49[^\"]\" %f \"%199[^\"]\" %d %d",
+    while (fscanf(f, " \"%49[^\"]\" %f \"%199[^\"]\" %d %d %d",
                   techniques[i].nom,
                   &techniques[i].valeur,
                   techniques[i].description,
                   &techniques[i].nbToursRecharge,
-                  &techniques[i].jauge)  == 5) {
+                  &techniques[i].nbToursActif,
+                  &techniques[i].jauge)  == 6) {
         i++;
     }
 

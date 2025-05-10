@@ -90,7 +90,7 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
             actionOrdinateur(&(*rouge).membres[1], rouge,bleue, 2,(*rouge).membres, niveauOrdinateur, 1);
           }
   }
-  sleep(6); // Pause de 2 secondes pour laisser le temps de lire
+  sleep(7); // Pause de 2 secondes pour laisser le temps de lire
   system("clear");// Effacer l'écran
 
 }    

@@ -67,19 +67,15 @@ int main() {
 
 
   //######## choix mode de jeu ########
- 
   do {
-    
-    printf("Choisissez le mode de jeu : ");
-     //RAJOUTER LA GESTION SI ON CHOISIT UN AUTRE CHIFFRE QUE 1 OU 2, idée : ajouter cet emoji : 🤦‍♂️
-  
-     int saisitOK=scanf("%d", &mode);
-     viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
-    if (mode != 1 && mode != 2 && saisitOK != 1) {
-        printf("⚠️ Choix invalide ! Veuillez entrer 1 ou 2 🤦 \n");
-    
-    }
-    
+  printf("Choisissez le mode de jeu (1 ou 2) : ");
+  int saisitOK = scanf("%d", &mode);
+  viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
+
+  if (saisitOK != 1 || (mode != 1 && mode != 2)) {
+      printf("\033[1;31m⚠️ Choix invalide ! Veuillez entrer 1 ou 2 🤦\033[0m\n");
+      mode = 0; // Réinitialiser pour forcer une nouvelle saisie
+  }
   } while (mode != 1 && mode != 2);
 
   printf("\n");
@@ -119,7 +115,7 @@ if (mode == 2) {
 
     //EQUIPE BLEUE
     //afficher les combattants 
-  printf ("Choisissez le 2 Combattants de l'équipe bleue 🔵 parmis : \n");
+  printf ("Choisissez le 2 Combattants de %sl'équipe bleue%s 🔵 parmis : \n", BLEU,RESET);
   printf("\n");
   for (int i = 0; i < NBCOMBATTANTS; i++) {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
@@ -187,7 +183,8 @@ if (mode == 2) {
     sleep(1); // Pause de 1 seconde 
   }
   printf("\n");
-  printf("Choisissez le 2 Combattants de l'équipe rouge 🔴 parmis : \n");
+  printf("On vous rappelle que %s%s et %s%s ont deja été choisi\n",BLEU,nomsCombattants[choix1],nomsCombattants[choix2],RESET);
+  printf("Choisissez les 2 Combattants de %sl'équipe rouge%s 🔴 parmis ceux qui n'ont pas été choisi : \n",ROUGE,RESET);
 
   //premier choix 
   do {
@@ -205,13 +202,13 @@ if (mode == 2) {
     } else if (choix3 < 0 || choix3 >= NBCOMBATTANTS) {
         printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
     }
-} while (choix3 < 0 || choix3 >= NBCOMBATTANTS);
+} while (choix3 < 0 || choix3 >= NBCOMBATTANTS || choix3 == choix1 || choix3 == choix2);
 
    
 
   //second choix
   printf("Choisissez le deuxième combattant à l'aide de son numéro (0 à %d) : ", NBCOMBATTANTS - 1);
-  printf("⚠️ Attention, il ne doit pas être le même que le premier !\n");
+  printf("⚠️ Attention, il ne doit pas être déjà choisi !\n");
   do {
       printf("Choix 2 : ");
       int saisitOK4 = scanf("%d", &choix4);
@@ -226,7 +223,7 @@ if (mode == 2) {
       } else if (choix4 < 0 || choix4 >= NBCOMBATTANTS) {
           printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
       }
-  } while ((choix3 == choix4) || (choix4 < 0 || choix4 >= NBCOMBATTANTS));
+  } while ((choix3 == choix4) || (choix4 < 0 || choix4 >= NBCOMBATTANTS) || choix4 == choix1 || choix4 == choix2);
  
     // Affectation maintenant que les choix sont valides
     equiperouge[0] = tab[choix3];
@@ -295,7 +292,6 @@ getchar(); // Attendre la pression de la touche Entrée
 afficherChargement();  // Animation de chargement
 afficherObjet(objetRouge);  // Afficher l'objet de l'équipe rouge
 sleep(1); // Pause de 1 seconde pour l'effet d'animation
-printf("\n");
 equipeBleue.membres[0] = tab[choix1];
 equipeBleue.membres[1] = tab[choix2];
 equipeBleue.objet = objetBleu;
@@ -304,7 +300,7 @@ equipeRouge.membres[0] = tab[choix3];
 equipeRouge.membres[1] = tab[choix4];
 equipeRouge.objet = objetRouge;
 
-sleep(6); // Pause de 2 secondes pour laisser le temps de lire
+sleep(4); // Pause de 2 secondes pour laisser le temps de lire
 system("clear");// Effacer l'écran
 
 

@@ -14,6 +14,7 @@ typedef struct {
     float valeur;
     char description[200];
     int nbToursRecharge;
+    int nbToursActif;
     int jauge;
 } TechniqueSpeciale;
 
@@ -73,7 +74,7 @@ int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants);
 void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float* jauges, int* vitesses);
 int equipeEstKO(Equipe* eq);
 void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies);
-int essayerUtiliserTechniqueSpeciale(Combattants* joueur, TechniqueSpeciale tech );
+int essayerUtiliserTechniqueSpeciale(Combattants* joueur);
 void afficherOptions();
 int choisirAction();
 #endif

@@ -44,33 +44,11 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
     // Choisir une action
     int choixAction = choisirAction();
     
-    // Choisir une cible
-    do {
-        if (choixAction == 1){
-        printf("Choisissez un adversaire à attaquer :\n");
-        for (int i = 0; i < nbAdversaires; i++) {
-            if (adversaires[i].points_de_vie_courants > 0) {
-                printf("%d : %s (PV : %d)\n", i, adversaires[i].nom, adversaires[i].points_de_vie_courants);
-                sleep(1);
-            }
-        }
-       
-        }
-        printf("Votre choix : ");
-        int saisieValide = scanf("%d", &choixCible);
-        viderBuffer();
-
-        if (saisieValide != 1 || choixCible < 0 || choixCible >= nbAdversaires || adversaires[choixCible].points_de_vie_courants <= 0) {
-            printf("\033[1;31m⚠️ Choix invalide. Veuillez choisir un adversaire valide.\033[0m\n");
-            choixCible = -1;
-        }
-    } while (choixCible < 0 || choixCible >= nbAdversaires || adversaires[choixCible].points_de_vie_courants <= 0);
     
-    
-    if (choixAction == 2) { //techniques spéciales
-        if (essayerUtiliserTechniqueSpeciale(joueurActif, (*joueurActif).competencesSpeciales)) {
-        // 1er cas : dracaufeu
-            if (strcmp(joueurActif->nom, "Dracaufeu") == 0)  {
+    if (choixAction == 2 && essayerUtiliserTechniqueSpeciale(joueurActif) == 1) { //techniques spéciales
+        // 1er cas : Dracaufeu
+        if (strcmp(joueurActif->nom, "Dracaufeu") == 0)  {
+            joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
             printf("Vous allez utiliser la technique spéciale de 🔥🐉 Dracaufeu : Danse flamme 🕺 !\n");
             printf("La propagation du feu brûle tous les ennemis !\n");
                 for (int i=0; i<nbAdversaires; i++){
@@ -79,10 +57,24 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                         appliquerDegats(&adversaires[i], joueurActif->competencesSpeciales.valeur);
                     }
                 }
-            }   
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation joueur actif
 
-        // 2eme cas : Luffy
-            } else if (strcmp(joueurActif->nom, "Luffy") == 0)  {
+           
+
+            // 2eme cas : Luffy
+            
+        } else if (strcmp(joueurActif->nom, "Luffy") == 0)  {
+                joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
                 printf("Vous allez utiliser la technique spéciale de 🏴‍☠️ Luffy : Gum Gum Bazooka !\n");
                 printf("Luffy attaque avec son poing élastique 👊 !\n");
                 //choix de la cible
@@ -94,14 +86,26 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                 }
                 printf("Votre choix : ");
                 int saisieValide = scanf("%d", &choixCible);
+                viderBuffer();
                 if (saisieValide != 1) {
                     printf("Entrée invalide.\n");
-                    viderBuffer();
                 }
                 appliquerDegats(&adversaires[choixCible], joueurActif->competencesSpeciales.valeur);
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation
 
             //cas de Elsa
-            } else if (strcmp(joueurActif->nom, "Elsa") == 0) {
+        } else if (strcmp(joueurActif->nom, "Elsa") == 0) {
+                joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
                 printf("Vous allez utiliser la technique spéciale de ❄️👑 Elsa : Soin Gelé !\n");
                 printf("Elsa soigne un allié avec un vent de glace !\n");   
                 //choix de la cible
@@ -119,14 +123,39 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                         printf("Dommage il fallait être plus attentif !\n");
                     }
                 }
-            // cas de Iron man
-            } else if (strcmp(joueurActif->nom, "ironMan") == 0) {
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation
+
+         // cas de Iron man
+        } else if (strcmp(joueurActif->nom, "ironMan") == 0) {
+                joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
                 printf("Vous allez utiliser la technique spéciale de 🤖 IronMan : Armure 🛡️\n");
                 printf("IronMan augmente sa défense\n");
                 joueurActif->defense +=  joueurActif->competencesSpeciales.valeur;
-                    
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation
+
             //cas de Yoshi
-            } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {
+        } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {
+                joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
                 printf("Vous allez utiliser la technique spéciale de 🦖🍄 Yoshi : Bomb'oeuf\n");
                 printf("Yoshi lance des oeufs explosifs a tous ses ennemis\n");
                 for (int i=0; i<nbAdversaires; i++){
@@ -135,9 +164,21 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                         appliquerDegats(&adversaires[i], joueurActif->competencesSpeciales.valeur);
                     }
                 }
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation
 
             //cas de Zelda
-            } else if (strcmp(joueurActif->nom, "Zelda") == 0) {
+        } else if (strcmp(joueurActif->nom, "Zelda") == 0) {
+                joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
                 printf("Vous allez utiliser la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
                 printf("Zelda invoque la lumière divine qui soigne toute son équipe \n");
                 
@@ -157,19 +198,65 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                         printf("Vous ne pouvez pas soigner un allié KO !\n");
                         printf("Seule toi bénéficie de l'attaque spéciale !\n");
                     }
+                }
+                for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                    if (allies[i].points_de_vie_courants > 0) {
+                        allies[i].competencesSpeciales.jauge ++; 
+                    }    
+                }
+                for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                    if (adversaires[i].points_de_vie_courants > 0) {
+                        adversaires[i].competencesSpeciales.jauge ++; 
+                    }    
                 }        
-    
-            }
-
-        } else {
-            printf("\033[1;33m⚠️ Technique spéciale pas encore prête.\033[0m\n ");
-            choixAction = 1;
+                joueurActif->competencesSpeciales.jauge ++; // incrémentation
         }
+        
+    } else {
+        printf("\033[1;33m⚠️ Technique spéciale pas encore prête.\033[0m\n ");
+        choixAction = 1;
+    } // fin du if technique spéciale
+
+
 
     // Appliquer l'action choisie
     if (choixAction == 1) {
+        // Choisir une cible
+    do {
+        if (choixAction == 1){
+            printf("Choisissez un adversaire à attaquer :\n");
+            for (int i = 0; i < nbAdversaires; i++) {
+                if (adversaires[i].points_de_vie_courants > 0) {
+                printf("%d : %s (PV : %d)\n", i, adversaires[i].nom, adversaires[i].points_de_vie_courants);
+                sleep(1);
+            }
+            }
+       
+        }
+
+        printf("Votre choix : ");
+        int saisieValide = scanf("%d", &choixCible);
+        viderBuffer();
+
+        if (saisieValide != 1 || choixCible < 0 || choixCible >= nbAdversaires ) {
+            printf("\033[1;31m⚠️ Choix invalide. Veuillez choisir un adversaire valide.\033[0m\n");
+            choixCible = -1;
+        }
+    } while (choixCible < 0 || choixCible >= nbAdversaires || adversaires[choixCible].points_de_vie_courants <= 0);
+    
+    
         printf("%s attaque %s avec une attaque normale !\n", (*joueurActif).nom, adversaires[choixCible].nom);
         appliquerDegats(&adversaires[choixCible], (*joueurActif).attaque);
-
+        for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+            if (allies[i].points_de_vie_courants > 0) {
+                allies[i].competencesSpeciales.jauge ++; 
+            }    
+        }
+        for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+            if (adversaires[i].points_de_vie_courants > 0) {
+                adversaires[i].competencesSpeciales.jauge ++; 
+            }    
+        }
+        joueurActif->competencesSpeciales.jauge ++; // incrémentation
     } 
 }
