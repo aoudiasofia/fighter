@@ -13,7 +13,6 @@ typedef struct {
     char nom[50];
     float valeur;
     char description[200];
-    int nbToursActifs;
     int nbToursRecharge;
     int jauge;
 } TechniqueSpeciale;
