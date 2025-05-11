@@ -10,6 +10,14 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 - [**LECHEVALLIER Morgan**](https://github.com/morganlechevallier)
 
 
+## 📄 Rapport de projet
+
+  Vous pouvez consulter le rapport de projet en cliquant sur le lien,ci-dessous :
+
+ - [📕 Rapport de projet (PDF)](rapport_projet.pdf)
+
+---
+
 ## 🚀 Fonctionnalités
 
 - **Modes de jeu** :
