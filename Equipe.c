@@ -69,7 +69,7 @@ int main() {
     viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
 
     if (saisitOK != 1 || (mode != 1 && mode != 2)) {
-      printf("\033[1;31m⚠️ Choix invalide ! Veuillez entrer 1 ou 2 🤦\033[0m\n");
+      printf("%s⚠️ Choix invalide ! Veuillez entrer 1 ou 2 🤦%s\n",ROUGE,RESET);
       mode = 0; // Réinitialiser pour forcer une nouvelle saisie
     }
   } while (mode != 1 && mode != 2);
@@ -96,10 +96,10 @@ int main() {
       int saisitOK = scanf("%d", &niveau);
       viderBuffer(); // Vider le buffer d'entrée pour éviter les erreurs de saisie
       if (saisitOK != 1) {
-        printf("⚠️ Entrée invalide ! Veuillez entrer un numéro valide.\n");
+        printf("%s⚠️ Entrée invalide ! Veuillez entrer un numéro valide%s 🤦\n",ROUGE , RESET);
         niveau = 0; // Forcer la répétition de la boucle
       } else if (niveau < 1 || niveau > 3) {
-        printf("⚠️ Le niveau doit être compris entre 1 et 3.\n");
+        printf("⚠️ %sLe niveau doit être compris entre 1 et 3%s 🤦\n", ROUGE, RESET);
       }
     } while (niveau < 1 || niveau > 3);
     printf("Vous avez choisi le niveau %d\n", niveau);
