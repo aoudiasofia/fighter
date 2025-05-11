@@ -32,7 +32,8 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
     }
 
     // Utiliser un objet (1 chance sur 3)
-    if ((niveau == 2 || niveau == 3) && equipeOrdi->objetUtilise == 0) { // pas d'objet si niveau 1
+    // si l'objet n'a pas été utilisé et que le niveau est 2 ou 3
+    if ((niveau == 2 || niveau == 3) && equipeOrdi->objetUtilise == 0) { //pas d'objet si niveau 1
         int chance = rand() % 3;
         if (chance == 1) {
             printf("L'ordinateur utilise l'objet spécial : %s !\n", equipeOrdi->objet.nom);
@@ -41,7 +42,6 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             equipeOrdi->objetUtilise = 1;
         }
     }
-
     // Technique spéciale si disponible ( niveau 3 uniquement)
     if (niveau == 3 && joueurActif != NULL && essayerUtiliserTechniqueSpeciale(joueurActif) == 1) {
         
