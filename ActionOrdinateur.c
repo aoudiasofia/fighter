@@ -10,13 +10,21 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
 
     // Choisir la cible
     if (niveau == 1) {
-        cible = rand() % 2;
+        cible = rand() % 2; //niveau 1 : attaque aléatoire
         printf("L'ordinateur attaque aléatoirement %s.\n", adversaires[cible].nom);
-    } else {
-        if ((adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants)&& adversaires[0].points_de_vie_courants > 0) {
-            cible = 0;
-        } else {
-            cible = 1;
+    } else { //pour niveau 2 et 3 : le plus faible est attaqué
+        if ((adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants)) { //si combattant a moins de Pv que le 2
+           if (adversaires[0].points_de_vie_courants>0){ //on verifie que le combattant n'est pas KO
+                cible = 0;
+           } else {
+                cible = 1; // si le 1 est KO, on attaque le 2
+           }
+        } else if (adversaires[1].points_de_vie_courants <= adversaires[0].points_de_vie_courants ) { //si combattant 2 a moins de Pv que le 1
+            if (adversaires[1].points_de_vie_courants>0){ //on verifie que le combattant n'est pas KO
+                cible = 1;
+            } else {
+                cible = 0;// si le 2 est KO, on attaque le 1
+            }
         }
         printf("L'ordinateur attaque %s, qui a le moins de PV. \n", adversaires[cible].nom);
     }
