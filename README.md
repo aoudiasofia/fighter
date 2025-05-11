@@ -121,44 +121,42 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 
 
 
-    appliquerDegats.c : S'occupe de l’application des dégâts à un combattant.
+  - appliquerDegats.c : S'occupe de l’application des dégâts à un combattant.
 
-    appliquerEffetObjet.c : Applique les effets des objets bonus.
+  - appliquerEffetObjet.c : Applique les effets des objets bonus.
 
-    ActionOrdinateur.c : Explique à l'ordinateur comment se comporter.
+  - ActionOrdinateur.c : Explique à l'ordinateur comment se comporter.
 
-    **affichage.c / affichage.h : Fonctions qui affichent des informations comme les équipes, les états et les actions.
+  - **affichage.c / affichage.h : Fonctions qui affichent des informations comme les équipes, les états et les actions.
 
-    afficheCombattants.c : Permet d'afficher les caractéristiques des combattants.
+  - afficheObjet.c : Permet d'afficher les objets obtenus et les animations de chargement.
 
-    afficheObjet.c : Permet d'afficher les objets obtenus et les animations de chargement.
+  - combat.c : Permet d'afficher le déroulement d’un combat entre deux équipes.
 
-    combat.c : Permet d'afficher le déroulement d’un combat entre deux équipes.
+  - CombattantJouer.c : Détermine le combattant prêt à jouer selon la jauge d’action.
 
-    CombattantJouer.c : Détermine le combattant prêt à jouer selon la jauge d’action.
+  - Equipe.c : S'occupe et initialise les équipes.
 
-    Equipe.c : S'occupe et initialise les équipes.
+  - equipeKo.c : Vérifie si une équipe est K.O.
 
-    equipeKo.c : Vérifie si une équipe est K.O.
+  - essayerTechSpe.c : Vérifie si on peut utiliser les techniques spéciales.
 
-    essayerTechSpe.c : Vérifie si on peut utiliser les techniques spéciales.
+  - fichier.h : Définitions des structures, prototypes de fonctions et variables globales.
 
-    fichier.h : Définitions des structures, prototypes de fonctions et variables globales.
+  - couleurs.h : Définitions des couleurs pour l’affichage.
 
-    couleurs.h : Définitions des couleurs pour l’affichage.
+  - combattants.txt : Caractéristiques des combattants.
 
-    combattants.txt : Caractéristiques des combattants.
+  - TechniquesSpeciales.txt : Liste des techniques spéciales.
 
-    TechniquesSpeciales.txt : Liste des techniques spéciales.
+  - genererObjet.c : Génère aléatoirement un objet.
 
-    genererObjet.c : Génère aléatoirement un objet.
+  - GererTourHumain.c : Guide l'utilisateur pendant sa partie.
 
-    GererTourHumain.c : Guide l'utilisateur pendant sa partie.
+  - lectureCombattants.c : Lecture des combattants depuis un fichier texte.
 
-    lectureCombattants.c : Lecture des combattants depuis un fichier texte.
+  - lectureTechniques.c : Lecture des techniques spéciales depuis un fichier texte.
 
-    lectureTechniques.c : Lecture des techniques spéciales depuis un fichier texte.
+  - Makefile : Permet de compiler tous les fichiers en même temps.
 
-    Makefile : Permet de compiler tous les fichiers en même temps.
-
-    variables.c : Déclaration réelle des variables globales.
+  - variables.c : Déclaration réelle des variables globales.

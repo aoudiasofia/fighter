@@ -5,7 +5,7 @@
 
 int equipeEstKO(Equipe* eq) {
     for (int i = 0; i < 2; i++) {
-        if (eq->membres[i].points_de_vie_courants > 0) { // Utilisation de '->'
+        if (eq->membres[i].points_de_vie_courants > 0) { //vérifie si le combattant n'a plus de points de vie 
             return 0; // L'équipe n'est pas KO
         }
     }

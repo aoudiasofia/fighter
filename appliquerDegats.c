@@ -1,9 +1,9 @@
 
 #include "fichier.h"
-#include "fichier.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <unistd.h> 
+
 
 void appliquerDegats(Combattants* cible, int degats) {
     int degatsReels = degats - (*cible).defense;
@@ -15,4 +15,5 @@ void appliquerDegats(Combattants* cible, int degats) {
         (*cible).points_de_vie_courants = 0;
     }
     printf("%s subit %d dégâts (PV restants : %d). \n", (*cible).nom, degatsReels, (*cible).points_de_vie_courants);
+    sleep(1);
 }

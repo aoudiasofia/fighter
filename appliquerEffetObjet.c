@@ -46,7 +46,6 @@ int peutUtiliserObjet(Objet objet, Equipe* eq) {
 
     // Vérifier si l'objet est de type TROLL
     if (objet.type == TROLL) {
-  
         return 0; // L'objet ne peut pas être utilisé
     }
 

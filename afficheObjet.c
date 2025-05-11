@@ -8,7 +8,6 @@
 
 
 void afficherObjet(Objet objet) {
-
     switch (objet.type) {
         case BOUCLIER:
             printf("Type : Bouclier 🛡️ \n"); //POUR AMÉLIORER AJOUTER EMOJI COULEUR ...

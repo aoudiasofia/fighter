@@ -4,9 +4,6 @@
 #define FICHIER_H
 #define NBCOMBATTANTS 6
 
-
-
-
 //TECHNIQUES SPECIALES
 
 typedef struct {

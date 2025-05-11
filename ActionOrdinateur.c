@@ -26,6 +26,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         int chance = rand() % 3;
         if (chance == 0) {
             printf("L'ordinateur utilise l'objet spécial : %s !\n", equipeOrdi->objet.nom);
+            sleep(1);
             appliquerEffetObjet(equipeOrdi->objet, joueurActif);
             equipeOrdi->objetUtilise = 1;
         }
@@ -33,33 +34,35 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
 
     // Technique spéciale si disponible ( niveau 3 uniquement)
     if (niveau == 3 && joueurActif != NULL && essayerUtiliserTechniqueSpeciale(joueurActif) == 1) {
-        // 1er cas : dracaufeu
-        if (strcmp(joueurActif->nom, "Dracaufeu") == 0) {
+        
+        if (strcmp(joueurActif->nom, "Dracaufeu") == 0) { // 1er cas : dracaufeu
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🔥🐉 Dracaufeu : Danse flamme 🕺 !\n");
+            printf("Vous allez utiliser la technique spéciale de 🔥 Dracaufeu 🐉 : Danse flamme 🕺 !\n");
             printf("La propagation du feu brûle tous les ennemis !\n");
-                for (int i=0; i<nbAdversaires; i++){
-                    if (adversaires[i].points_de_vie_courants > 0) {
-                        printf("%s subit des dégâts de feu !\n", adversaires[i].nom);
-                        appliquerDegats(&adversaires[i], joueurActif->competencesSpeciales.valeur);
-                        for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
-                            if (allies[i].points_de_vie_courants > 0) {
-                                allies[i].competencesSpeciales.jauge ++; 
-                            }    
-                        }
-                        for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
-                            if (equipeAdverse->membres[i].points_de_vie_courants > 0) {
-                                equipeAdverse->membres[i].competencesSpeciales.jauge ++; 
-                            }    
-                        }
-                        joueurActif->competencesSpeciales.jauge ++; // incrémentation
+            sleep(1);
+            for (int i=0; i<nbAdversaires; i++){
+                if (adversaires[i].points_de_vie_courants > 0) {
+                    printf("%s subit des dégâts de feu !\n", adversaires[i].nom);
+                    appliquerDegats(&adversaires[i], joueurActif->competencesSpeciales.valeur);
+                    for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
+                        if (allies[i].points_de_vie_courants > 0) {
+                            allies[i].competencesSpeciales.jauge ++; 
+                        }    
                     }
+                    for (int i=0; i<nbAdversaires; i++){ // on incrémente la jauge de tous les adversaires
+                        if (equipeAdverse->membres[i].points_de_vie_courants > 0) {
+                            equipeAdverse->membres[i].competencesSpeciales.jauge ++; 
+                        }    
+                    }
+                    joueurActif->competencesSpeciales.jauge ++; // incrémentation
                 }
-        // Cas Luffy        
-        } else if (strcmp(joueurActif->nom, "Luffy") == 0)  { 
+            }
+               
+        } else if (strcmp(joueurActif->nom, "Luffy") == 0)  { // Cas Luffy 
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
             printf("Vous allez utiliser la technique spéciale de 🏴‍☠️ Luffy : Gum Gum Bazooka !\n");
             printf("Luffy attaque avec son poing élastique 👊 !\n");
+            sleep(1);
             //choix de la cible
             if(adversaires[0].points_de_vie_courants < 0 && adversaires[1].points_de_vie_courants > 0){
                 printf("%s (PV : %d)\n", adversaires[1].nom, adversaires[1].points_de_vie_courants);
@@ -125,11 +128,12 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                 joueurActif->competencesSpeciales.jauge ++; // incrémentation
             }
                
-         //cas de Elsa
-        } else if (strcmp(joueurActif->nom, "Elsa") == 0) {
+        
+        } else if (strcmp(joueurActif->nom, "Elsa") == 0) {  //cas de Elsa
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de ❄️👑 Elsa : Soin Gelé !\n");
-            printf("Elsa soigne un allié avec un vent de glace !\n");   
+            printf("Vous allez utiliser la technique spéciale de ❄️ Elsa : Soin Gelé !\n");
+            printf("Elsa soigne son équipe avec un vent de glace !\n");   
+            sleep(1);
             //choix de la cible
             for (int i = 0; i < nbAllies; i++) {
                 if (allies[i].points_de_vie_courants > 0) {
@@ -157,11 +161,11 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             }
             joueurActif->competencesSpeciales.jauge ++; // incrémentation
 
-        // cas de Iron man
-        } else if  (strcmp(joueurActif->nom, "IronMan") == 0) {
+        } else if  (strcmp(joueurActif->nom, "IronMan") == 0) {  // cas de Iron man
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
             printf("Vous allez utiliser la technique spéciale de 🤖 IronMan : Armure 🛡️\n");
             printf("IronMan augmente sa défense\n");
+            sleep(1);
             joueurActif->defense +=  joueurActif->competencesSpeciales.valeur;
 
             for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
@@ -176,11 +180,11 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             }
             joueurActif->competencesSpeciales.jauge ++; // incrémentation
 
-        //cas de Yoshi
-        } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {
+        } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {  //cas de Yoshi
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
             printf("Vous allez utiliser la technique spéciale de 🦖🍄 Yoshi : Bomb'oeuf\n");
             printf("Yoshi lance des oeufs explosifs a tous ses ennemis\n");
+            sleep(1);
             for (int i=0; i<nbAdversaires; i++){
                 if (adversaires[i].points_de_vie_courants > 0) {
                     printf("%s se prend un oeuf !\n", adversaires[i].nom);
@@ -200,13 +204,11 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                 }
             }
 
-        //cas de Zelda
-        } else if (strcmp(joueurActif->nom, "Zelda") == 0) {
+        } else if (strcmp(joueurActif->nom, "Zelda") == 0) {  //cas de Zelda
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
             printf("Vous allez utiliser la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
             printf("Zelda invoque la lumière divine qui soigne toute son équipe \n");
-            
-                
+            sleep(1);
             for (int i = 0; i < nbAllies; i++) {
                 if (allies[i].points_de_vie_courants > 0) {
                     printf(" %s (PV : %d) va être soigné\n", allies[i].nom, allies[i].points_de_vie_courants);
@@ -223,7 +225,6 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                     printf("Seule toi bénéficie de l'attaque spéciale !\n");
                 }
             }        
-
             for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
                 if (allies[i].points_de_vie_courants > 0) {
                     allies[i].competencesSpeciales.jauge ++; 
@@ -239,7 +240,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         } 
     } else {
         // Attaque normale
-        printf("L'ordinateur attaque normalement %s.\n", equipeAdverse[cible].nom);
+        printf("L'ordinateur attaque normalement %s !\n", equipeAdverse[cible].nom);
         appliquerDegats(&adversaires[cible], joueurActif->attaque);
         for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
             if (allies[i].points_de_vie_courants > 0) {

@@ -18,12 +18,11 @@ void afficherEquipe(Equipe equipe, char* couleurEquipe) {
             equipe.membres[i].defense,
             equipe.membres[i].vitesse,
             equipe.membres[i].agilite,
-            equipe.membres[i].competencesSpeciales.nom
-        );
+            equipe.membres[i].competencesSpeciales.nom);
     
     }
     printf("============================================\n");
-    sleep(2);
+    sleep(1);
 }
 
 // Affiche l'état complet du combat
@@ -35,7 +34,7 @@ void afficherEtatCombat(Equipe bleue, Equipe rouge) {
 // Affiche le début du tour d'un joueur
 void afficherTourJoueur(Combattants* joueur, Equipe* equipe) {
     printf("\n✨ C'est au tour de %s\n", joueur->nom);
-        sleep(1);
+    sleep(1);
     printf("❤️ PV : ");
     afficherBarreDeVie(joueur->points_de_vie_courants, joueur->points_de_vie_max);
     printf("\n");
@@ -44,14 +43,13 @@ void afficherTourJoueur(Combattants* joueur, Equipe* equipe) {
 // Affiche les actions possibles pour le joueur actif
 void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
     printf("\n");
-    printf("Actions disponibles :\n");
+    printf("Actions :\n");
     sleep(1);
     printf("1️⃣  Attaquer un adversaire\n");
     sleep(1);
     if (joueur != NULL && essayerUtiliserTechniqueSpeciale(joueur)) {
         printf("  Technique spéciale de %s : (Rechargée : %d / %d tours)\n", 
-            joueur->nom, joueur->competencesSpeciales.jauge, joueur->competencesSpeciales.nbToursRecharge);
- 
+        joueur->nom, joueur->competencesSpeciales.jauge, joueur->competencesSpeciales.nbToursRecharge);
         printf("2️⃣  Utiliser la technique spéciale \"%s\" (%s)\n", joueur->competencesSpeciales.nom, joueur->competencesSpeciales.description);
         sleep(1);
     } else {
@@ -65,7 +63,7 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
         printf("⛔ Objet déjà utilisé \n");
         sleep(1);
     }
-printf("\n");
+    printf("\n");
 }
 
 // Affiche une barre de vie textuelle
