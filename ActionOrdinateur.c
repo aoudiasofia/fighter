@@ -42,6 +42,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             equipeOrdi->objetUtilise = 1;
         }
     }
+
     // Technique spéciale si disponible ( niveau 3 uniquement)
     if (niveau == 3 && joueurActif != NULL && essayerUtiliserTechniqueSpeciale(joueurActif) == 1) {
         
