@@ -1,7 +1,7 @@
 # fighter
-# CY-FIGHTERS 🥊
+# CY-FIGHTER 🥊
 
-Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent pour la victoire ultime ! 🎮
+Bienvenue dans **CY-FIGHTER**, un jeu de combat où deux équipes s'affrontent pour la victoire ultime ! 🎮
 
 ---
 ## 🤝 Collaborateurs
