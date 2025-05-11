@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "fichier.h"
 #include <unistd.h>
-#include <string.h> // Assurez-vous d'inclure <string.h>
+#include <string.h> 
 
 void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse,int nbAdversaires, Combattants allies[], int niveau, int nbAllies ) {
     int cible = 0;
@@ -13,7 +13,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         cible = rand() % 2;
         printf("L'ordinateur attaque aléatoirement %s.\n", adversaires[cible].nom);
     } else {
-        if (adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants) {
+        if ((adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants)&& adversaires[0].points_de_vie_courants > 0) {
             cible = 0;
         } else {
             cible = 1;
