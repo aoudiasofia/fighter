@@ -123,7 +123,6 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                 } else {
                     printf("%d : %s (KO)\n", i, allies[i].nom);
                     printf("Vous ne pouvez pas soigner un allié KO !\n");
-                    printf("Dommage il fallait être plus attentif !\n");
                 }
             }
             for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés

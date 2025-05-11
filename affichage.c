@@ -57,7 +57,7 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
         sleep(1);
     }
     if (equipe->objetUtilise == 0) {
-        printf("3️⃣  Utiliser l'objet bonus \"%s\"\n", equipe->objet.nom);
+        printf("3️⃣  Utiliser l'objet bonus %s : %s\n", equipe->objet.nom, equipe->objet.description);
         sleep(1);
     } else {
         printf("⛔ Objet déjà utilisé \n");

@@ -15,7 +15,7 @@ Objet genererObjetAleatoire() {
         case 0:
             objet.type = BOUCLIER;
             strcpy(objet.nom, "Bouclier");
-            strcpy(objet.description, "Réduit les dégâts de la prochaine attaque.");
+            strcpy(objet.description, "Augmente la défense du combattant");
             break;
         case 1:
             objet.type = POTION;

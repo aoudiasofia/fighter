@@ -37,7 +37,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         
         if (strcmp(joueurActif->nom, "Dracaufeu") == 0) { // 1er cas : dracaufeu
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🔥 Dracaufeu 🐉 : Danse flamme 🕺 !\n");
+            printf("L'ordinateur utilise la technique spéciale de 🔥 Dracaufeu 🐉 : Danse flamme 🕺 !\n");
             printf("La propagation du feu brûle tous les ennemis !\n");
             sleep(1);
             for (int i=0; i<nbAdversaires; i++){
@@ -60,7 +60,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                
         } else if (strcmp(joueurActif->nom, "Luffy") == 0)  { // Cas Luffy 
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🏴‍☠️ Luffy : Gum Gum Bazooka !\n");
+            printf("L'ordinateur utilise la technique spéciale de 🏴‍☠️ Luffy : Gum Gum Bazooka !\n");
             printf("Luffy attaque avec son poing élastique 👊 !\n");
             sleep(1);
             //choix de la cible
@@ -131,7 +131,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
         
         } else if (strcmp(joueurActif->nom, "Elsa") == 0) {  //cas de Elsa
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de ❄️ Elsa : Soin Gelé !\n");
+            printf("L'ordinateur utilise la technique spéciale de ❄️ Elsa : Soin Gelé !\n");
             printf("Elsa soigne son équipe avec un vent de glace !\n");   
             sleep(1);
             //choix de la cible
@@ -145,8 +145,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                     }
                 } else {
                     printf("%d : %s (KO)\n", i, allies[i].nom);
-                    printf("Vous ne pouvez pas soigner un allié KO !\n");
-                    printf("Dommage il fallait être plus attentif !\n");
+                    printf("Elsa ne peut pas soigner un allié KO !\n");
                 }
             }
             for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
@@ -163,7 +162,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
 
         } else if  (strcmp(joueurActif->nom, "IronMan") == 0) {  // cas de Iron man
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🤖 IronMan : Armure 🛡️\n");
+            printf("L'ordinateur utilise la technique spéciale de 🤖 IronMan : Armure 🛡️\n");
             printf("IronMan augmente sa défense\n");
             sleep(1);
             joueurActif->defense +=  joueurActif->competencesSpeciales.valeur;
@@ -182,7 +181,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
 
         } else if (strcmp(joueurActif->nom, "Yoshi") == 0) {  //cas de Yoshi
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🦖🍄 Yoshi : Bomb'oeuf\n");
+            printf("L'ordinateur utilise la technique spéciale de 🦖🍄 Yoshi : Bomb'oeuf\n");
             printf("Yoshi lance des oeufs explosifs a tous ses ennemis\n");
             sleep(1);
             for (int i=0; i<nbAdversaires; i++){
@@ -206,7 +205,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
 
         } else if (strcmp(joueurActif->nom, "Zelda") == 0) {  //cas de Zelda
             joueurActif->competencesSpeciales.jauge = 0; // reset du compteur
-            printf("Vous allez utiliser la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
+            printf("L'ordinateur utilise la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
             printf("Zelda invoque la lumière divine qui soigne toute son équipe \n");
             sleep(1);
             for (int i = 0; i < nbAllies; i++) {
