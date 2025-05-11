@@ -216,7 +216,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
             joueurActif->competencesSpeciales.jauge ++; // incrémentation
         }
         
-    } else {
+    } else if (essayerUtiliserTechniqueSpeciale(joueurActif) == 0) { // si la technique spéciale n'est pas prête
         printf("\033[1;33m⚠️ Technique spéciale pas encore prête.\033[0m\n ");
         choixAction = 1;
     } // fin du if technique spéciale
