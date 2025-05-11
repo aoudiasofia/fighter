@@ -117,7 +117,7 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 
 -  Chaque joueur choisit 2 combattants.
 
-- Chaque équipe dispose d'un objet bonus mystère.
+- Chaque équipe dispose d'un objet bonus mystère utilisable 1 seule fois.
 
 - Les jauges de vitesse déterminent l'ordre des tours.
 
