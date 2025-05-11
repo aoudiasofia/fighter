@@ -6,8 +6,9 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 ---
 ## 🤝 Collaborateurs
 - [**AOUDIA Sofia**](https://github.com/aoudiasofia)
-- [**PHILIPPOT Lucie**](https://github.com/luciephilippot)
 - [**LECHEVALLIER Morgan**](https://github.com/morganlechevallier)
+- [**PHILIPPOT Lucie**](https://github.com/luciephilippot)
+
 
 
 ## 📄 Rapport de projet
