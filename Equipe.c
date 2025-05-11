@@ -110,7 +110,7 @@ int main() {
 
   //EQUIPE BLEUE
   //afficher les combattants 
-  printf ("Choisissez le 2 Combattants de %sl'équipe bleue%s 🔵 parmis : \n", BLEU,RESET);
+  printf ("Choisissez le 2 combattants de %sl'équipe bleue%s 🔵 parmi : \n", BLEU,RESET);
   printf("\n");
   for (int i = 0; i < NBCOMBATTANTS; i++) {
     printf("%d %s → PV max : %d | Attaque : %d | Vitesse : %d | Compétence : %s\n",i,nomsCombattants[i],tab[i].points_de_vie_max, tab[i].attaque,tab[i].vitesse, tab[i].competencesSpeciales.nom);
@@ -177,7 +177,7 @@ int main() {
     }
     printf("\n");
     printf("On vous rappelle que %s%s et %s%s ont deja été choisi\n",BLEU,nomsCombattants[choix1],nomsCombattants[choix2],RESET);
-    printf("Choisissez les 2 Combattants de %sl'équipe rouge%s 🔴 parmis ceux qui n'ont pas été choisi : \n",ROUGE,RESET);
+    printf("Choisissez les 2 combattants de %sl'équipe rouge%s 🔴 parmi ceux qui n'ont pas été choisi : \n",ROUGE,RESET);
 
     //premier choix 
     do {
@@ -250,7 +250,7 @@ int main() {
   }
 
   printf("\n");
-  printf("Vos choix on bien été pris en compte !\n");
+  printf("Vos choix ont bien été pris en compte !\n");
   sleep(1);
   
   //On affiche les équipes
@@ -265,7 +265,7 @@ int main() {
 
   //LES OBJETS 
 
-  printf("Dans ce jeu chaque joueur à le droit aléatoirement à un OBJET BONUS 🙌 \n");
+  printf("Dans ce jeu chaque joueur à le droit aléatoirement a un OBJET BONUS 🙌 \n");
   printf("\n");
   printf("\n");
 
