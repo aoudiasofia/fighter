@@ -37,10 +37,10 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 ### Fichiers principaux :
 - **`Equipe.c`** : S'occupe de l'initialisation et de la gestion des équipes.
 - **`CombattantJouer.c`** : Détermine le combattant prêt à jouer selon la jauge d’action.
-- **`appliquerDegats.c`** : Gère l’application des dégâts à un combattant.
+- **`appliquerDegats.c`** : S'occupe de l’application des dégâts à un combattant.
 - **`affichage.c` / `affichage.h`** : Affiche des informations comme les équipes, les états et les actions.
-- **`ActionOrdinateur.c`** : Définit le comportement de l'ordinateur.
-- **`combat.c`** : Gère le déroulement d’un combat entre deux équipes.
+- **`ActionOrdinateur.c`** : Explique à l'ordinateur comment se comporter.
+- **`combat.c`** : Permet d'afficher et de gérer le déroulement d’un combat entre deux équipes.
 - **`equipeKo.c`** : Vérifie si une équipe est K.O.
 - **`essayerTechSpe.c`** : Vérifie si les techniques spéciales peuvent être utilisées.
 - **`Makefile`** : Permet de compiler tous les fichiers en une seule commande.
@@ -149,22 +149,22 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 
   - essayerTechSpe.c : Vérifie si on peut utiliser les techniques spéciales.
 
-  - fichier.h : Définitions des structures, prototypes de fonctions et variables globales.
+  - fichier.h : Définit des structures, prototypes de fonctions et variables globales.
 
-  - couleurs.h : Définitions des couleurs pour l’affichage.
+  - couleurs.h : Définit des couleurs pour l’affichage.
 
   - combattants.txt : Caractéristiques des combattants.
 
   - TechniquesSpeciales.txt : Liste des techniques spéciales.
 
-  - genererObjet.c : Génère aléatoirement un objet.
+  - genererObjet.c : Génère aléatoirement un objet bonus.
 
   - GererTourHumain.c : Guide l'utilisateur pendant sa partie.
 
-  - lectureCombattants.c : Lecture des combattants depuis un fichier texte.
+  - lectureCombattants.c : Lit les combattants depuis un fichier texte.
 
-  - lectureTechniques.c : Lecture des techniques spéciales depuis un fichier texte.
+  - lectureTechniques.c : Lit les techniques spéciales depuis un fichier texte.
 
-  - Makefile : Permet de compiler tous les fichiers en même temps.
+  - Makefile : Permet de compiler tous les fichiers en une seule commande.
 
   - variables.c : Déclaration réelle des variables globales.
