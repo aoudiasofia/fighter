@@ -201,6 +201,9 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
                     printf("Seule toi bénéficie de l'attaque spéciale !\n");
                 }
             }
+            if(joueurActif->points_de_vie_courants > joueurActif->points_de_vie_max){
+                joueurActif->points_de_vie_courants = joueurActif->points_de_vie_max;
+            }
             for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
                 if (allies[i].points_de_vie_courants > 0) {
                     allies[i].competencesSpeciales.jauge ++; 

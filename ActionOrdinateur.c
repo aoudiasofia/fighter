@@ -217,6 +217,9 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                     if (allies[i].points_de_vie_courants>allies[i].points_de_vie_max){
                         allies[i].points_de_vie_courants = allies[i].points_de_vie_max;
                     }
+                    if(joueurActif->points_de_vie_courants > joueurActif->points_de_vie_max){
+                        joueurActif->points_de_vie_courants = joueurActif->points_de_vie_max;
+                    }
                     joueurActif->points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
                 } else {
                     joueurActif->points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
