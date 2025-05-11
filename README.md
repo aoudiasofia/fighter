@@ -30,7 +30,7 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 - **`Equipe.c`** : S'occupe de l'initialisation et de la gestion des équipes.
 - **`CombattantJouer.c`** : Détermine le combattant prêt à jouer selon la jauge d’action.
 - **`appliquerDegats.c`** : Gère l’application des dégâts à un combattant.
-- **`affichage.c` / **`affichage.h`** : Affiche des informations comme les équipes, les états et les actions.
+- **`affichage.c` / `affichage.h`** : Affiche des informations comme les équipes, les états et les actions.
 - **`ActionOrdinateur.c`** : Définit le comportement de l'ordinateur.
 - **`combat.c`** : Gère le déroulement d’un combat entre deux équipes.
 - **`equipeKo.c`** : Vérifie si une équipe est K.O.
@@ -127,7 +127,7 @@ Bienvenue dans **CY-FIGHTERS**, un jeu de combat où deux équipes s'affrontent 
 
   - ActionOrdinateur.c : Explique à l'ordinateur comment se comporter.
 
-  - **affichage.c / affichage.h : Fonctions qui affichent des informations comme les équipes, les états et les actions.
+  - affichage.c / affichage.h : Fonctions qui affichent des informations comme les équipes, les états et les actions.
 
   - afficheObjet.c : Permet d'afficher les objets obtenus et les animations de chargement.
 
