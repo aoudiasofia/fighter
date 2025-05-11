@@ -34,7 +34,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
     // Utiliser un objet (1 chance sur 3)
     if ((niveau == 2 || niveau == 3) && equipeOrdi->objetUtilise == 0) { // pas d'objet si niveau 1
         int chance = rand() % 3;
-        if (chance == 0) {
+        if (chance == 1) {
             printf("L'ordinateur utilise l'objet spécial : %s !\n", equipeOrdi->objet.nom);
             sleep(1);
             appliquerEffetObjet(equipeOrdi->objet, joueurActif);
