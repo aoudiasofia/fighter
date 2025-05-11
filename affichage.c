@@ -25,7 +25,7 @@ void afficherEquipe(Equipe equipe, char* couleurEquipe) {
     sleep(1);
 }
 
-// Affiche l'état complet du combat
+// Affiche l'état complet de chaque équipe
 void afficherEtatCombat(Equipe bleue, Equipe rouge) {
     afficherEquipe(bleue, BLEU);
     afficherEquipe(rouge, ROUGE);
@@ -47,7 +47,7 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
     sleep(1);
     printf("1️⃣  Attaquer un adversaire\n");
     sleep(1);
-    if (joueur != NULL && essayerUtiliserTechniqueSpeciale(joueur)) {
+    if (joueur != NULL && essayerUtiliserTechniqueSpeciale(joueur)) { // Vérifie si la technique spéciale est disponible
         printf("  Technique spéciale de %s : (Rechargée : %d / %d tours)\n", 
         joueur->nom, joueur->competencesSpeciales.jauge, joueur->competencesSpeciales.nbToursRecharge);
         printf("2️⃣  Utiliser la technique spéciale \"%s\" (%s)\n", joueur->competencesSpeciales.nom, joueur->competencesSpeciales.description);
@@ -56,7 +56,7 @@ void afficherActionsPossibles(Combattants* joueur, Equipe* equipe) {
         printf("⛔ Technique spéciale pas encore disponible \n");
         sleep(1);
     }
-    if (equipe->objetUtilise == 0) {
+    if (equipe->objetUtilise == 0) { // Vérifie si l'objet n'a pas été utilisé
         printf("3️⃣  Utiliser l'objet bonus %s : %s\n", equipe->objet.nom, equipe->objet.description);
         sleep(1);
     } else {
@@ -73,7 +73,7 @@ void afficherBarreDeVie(int pv, int pvMax) {
     printf("[");
     for (int i = 0; i < total; i++) {
         if (i < nbBlocs)
-            printf("█");
+            printf("█"); 
         else
             printf(" ");
     }

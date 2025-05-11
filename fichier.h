@@ -3,6 +3,7 @@
 #ifndef FICHIER_H
 #define FICHIER_H
 #define NBCOMBATTANTS 6
+#define NBEQUIPES 2
 
 //TECHNIQUES SPECIALES
 
@@ -41,8 +42,6 @@ typedef struct {
 } Objet;
 
 //STRUCTURE EQUIPE ( COMBATTATS + OBJET )
-
-#define NBEQUIPES 2
 
 typedef struct {
     char nom[50];

@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <string.h> 
 
-//ajouter les nouvelles fonctions dans le fichier.h
+
 
 void afficherOptions() {
     printf("Choisissez une action :\n");
@@ -16,7 +16,7 @@ void afficherOptions() {
     sleep(1);
 }
 
-int choisirAction() {
+int choisirAction() { // Permet de choisir entre une attaque normale et une technique spéciale
     int choixAction = 0;
     int saisieValide;
 
@@ -35,7 +35,7 @@ int choisirAction() {
     return choixAction;
 }
 
-void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies) {
+void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nbAdversaires, Combattants allies[], int nbAllies) { //gère le tour d'un joueur humain
 
     int choixCible;
     printf("\n");
@@ -229,8 +229,8 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
         do {
             if (choixAction == 1){
                 printf("Choisissez un adversaire à attaquer :\n");
-                for (int i = 0; i < nbAdversaires; i++) {
-                    if (adversaires[i].points_de_vie_courants > 0) {
+                for (int i = 0; i < nbAdversaires; i++) { // on afiche les adversaires disponibles 
+                    if (adversaires[i].points_de_vie_courants > 0) { // on verifie si l'adversaire est vivant avnt de l'afficher
                         printf("%d : %s (PV : %d)\n", i, adversaires[i].nom, adversaires[i].points_de_vie_courants);
                         sleep(1);
                     }
@@ -239,7 +239,7 @@ void gererTourHumain(Combattants* joueurActif, Combattants adversaires[], int nb
             }
 
             printf("Votre choix : ");
-            int saisieValide = scanf("%d", &choixCible);
+            int saisieValide = scanf("%d", &choixCible); //verfie si la saisie est valide
             viderBuffer();
 
             if (saisieValide != 1 || choixCible < 0 || choixCible >= nbAdversaires ) {

@@ -5,7 +5,7 @@
 
 
 int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
-    FILE* f = fopen(nomFichier, "r");
+    FILE* f = fopen(nomFichier, "r"); // Ouvre le fichier en mode lecture
     if (f == NULL) {
         printf("Erreur d'ouverture du fichier %s\n", nomFichier);
         return -1;
@@ -18,7 +18,7 @@ int lectureTechniques(TechniqueSpeciale* techniques, const char* nomFichier) {
                   techniques[i].description,
                   &techniques[i].nbToursRecharge,
                   &techniques[i].nbToursActif,
-                  &techniques[i].jauge)  == 6) {
+                  &techniques[i].jauge)  == 6) { // Lit les lignes du fichier
         i++;
     }
 

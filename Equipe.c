@@ -167,7 +167,7 @@ int main() {
   //soit le joueur2 choisit son equipe 
   //soit le joueur1 joue contre l'ordi et on choisit aléatoirement
 
-  if (mode == 1){
+  if (mode == 1){ //2 joueurs
     //Cas 1 : 
     printf("Rappelons les combattants disponibles : ");
     printf("\n");
@@ -195,7 +195,7 @@ int main() {
       } else if (choix3 < 0 || choix3 >= NBCOMBATTANTS) {
         printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
       }
-    } while (choix3 < 0 || choix3 >= NBCOMBATTANTS || choix3 == choix1 || choix3 == choix2);
+    } while (choix3 < 0 || choix3 >= NBCOMBATTANTS || choix3 == choix1 || choix3 == choix2); // Vérifier que le choix est valide et n'est pas déjà pris
 
    
 
@@ -216,13 +216,13 @@ int main() {
       } else if (choix4 < 0 || choix4 >= NBCOMBATTANTS) {
         printf("⚠️ Le numéro doit être compris entre 0 et %d.\n", NBCOMBATTANTS - 1);
       }
-    } while ((choix3 == choix4) || (choix4 < 0 || choix4 >= NBCOMBATTANTS) || choix4 == choix1 || choix4 == choix2);
+    } while ((choix3 == choix4) || (choix4 < 0 || choix4 >= NBCOMBATTANTS) || choix4 == choix1 || choix4 == choix2); // Vérifier que le choix est valide et n'est pas déjà pris
  
     // Affectation maintenant que les choix sont valides
     equiperouge[0] = tab[choix3];
     equiperouge[1] = tab[choix4];
 
-  } else if (mode==2){
+  } else if (mode==2){ //1 joueur contre l'ordinateur
     //Cas 2 :
     //On choisit aléatoirement
 
@@ -265,7 +265,7 @@ int main() {
 
   //LES OBJETS 
 
-  printf("Dans ce jeu chaque joueur à le droit aléatoirement à un OBJET BONUS 🙌 \n");//AJOUTER EXPLIQUATION DES OBJET BONUS 
+  printf("Dans ce jeu chaque joueur à le droit aléatoirement à un OBJET BONUS 🙌 \n");
   printf("\n");
   printf("\n");
 
@@ -275,26 +275,28 @@ int main() {
   Objet objetBleu = genererObjetAleatoire();
   Objet objetRouge = genererObjetAleatoire();
 
-  // Affichage avec animation
+  // Affichage avec couleurs et emojis
 
-  printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n"); //test utilisation couleur et emojis
+  printf("\033[1;34m🔵 Appuie sur Entrée pour afficher l'objet de l'équipe bleue 🔵\033[0m\n"); 
   getchar();     // Attente réelle de la touche
   afficherChargement();  // Animation de chargement
   afficherObjet(objetBleu);  // Afficher l'objet de l'équipe bleue
 
-  printf("\033[1;31m🔴 Appuie sur Entrée pour afficher l'objet de l'équipe rouge 🔴\033[0m\n"); //test utilisation couleur et emojis
+  printf("\033[1;31m🔴 Appuie sur Entrée pour afficher l'objet de l'équipe rouge 🔴\033[0m\n"); 
   getchar(); // Attendre la pression de la touche Entrée
 
   afficherChargement();  // Animation de chargement
   afficherObjet(objetRouge);  // Afficher l'objet de l'équipe rouge
   sleep(1); // Pause de 1 seconde pour l'effet d'animation
-  equipeBleue.membres[0] = tab[choix1];
-  equipeBleue.membres[1] = tab[choix2];
-  equipeBleue.objet = objetBleu;
 
-  equipeRouge.membres[0] = tab[choix3];
-  equipeRouge.membres[1] = tab[choix4];
-  equipeRouge.objet = objetRouge;
+
+  equipeBleue.membres[0] = tab[choix1]; // Affectation du premier combattant de l'équipe bleue
+  equipeBleue.membres[1] = tab[choix2]; // Affectation du deuxième combattant de l'équipe bleue
+  equipeBleue.objet = objetBleu; // Affectation de l'objet de l'équipe bleue
+  
+  equipeRouge.membres[0] = tab[choix3]; // Affectation du premier combattant de l'équipe rouge
+  equipeRouge.membres[1] = tab[choix4]; // Affectation du deuxième combattant de l'équipe rouge
+  equipeRouge.objet = objetRouge; // Affectation de l'objet de l'équipe rouge
 
   sleep(4); // Pause de 2 secondes pour laisser le temps de lire
   system("clear");// Effacer l'écran
@@ -312,22 +314,23 @@ int main() {
   printf("%sMAINTENANT PLACE AU COMBAT !!!!!%s\n",VIOLET, RESET);
   sleep(2);
 
-  while (1) {
-    combat(&equipeBleue, &equipeRouge, mode, niveau, jauges, vitesses);
+  while (1) { // Boucle infinie jusqu'à qu'une équipe soit KO (break)
+    //DEBUT DU COMBAT
+    combat(&equipeBleue, &equipeRouge, mode, niveau, jauges, vitesses); // Appel de la fonction qui gère le combat 
     sleep(1); // Attente pour mieux voir les tours
 
     // Vérifiez si une équipe est KO
     if (equipeEstKO(&equipeBleue)) {
       printf("%sBRAVOOOOOO%s 🎉🎉 \n",VIOLET, RESET);
-      printf("%sL'équipe bleue%s est KO ! %sL'équipe rouge%s gagne !!!\n",BLEU, RESET, ROUGE, RESET);
+      printf("%sL'équipe bleue%s est KO ! %sL'équipe rouge%s gagne !!!\n",BLEU, RESET, ROUGE, RESET); // Rouge gagne 
       printf("\n");
-      break;
+      break; //arret du jeu
     }
     if (equipeEstKO(&equipeRouge)) {
       printf("%sBRAVOOOOOO%s\n",VIOLET, RESET);
-      printf("%sL'équipe rouge est KO%s ! %sL'équipe bleue gagne%s 🎉 🎉\n",ROUGE, RESET, BLEU, RESET);
+      printf("%sL'équipe rouge est KO%s ! %sL'équipe bleue gagne%s 🎉 🎉\n",ROUGE, RESET, BLEU, RESET); //Bleu gagne
       printf("\n");
-      break;
+      break;//arret du jeu 
     }
   }
 

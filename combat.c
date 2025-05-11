@@ -16,7 +16,7 @@ void combat(Equipe* bleue, Equipe* rouge, int mode, int niveauOrdinateur, float*
       //aucun combattant n'est prêt à jouer
       return;
 
-    } else if (Combattant == 0) {
+    } else if (Combattant == 0) { 
       if (bleue->membres[0].points_de_vie_courants <= 0) {
         printf("\033[1;31m⚠️ %s est KO et ne peut pas jouer !\033[0m\n", bleue->membres[0].nom);
         return;

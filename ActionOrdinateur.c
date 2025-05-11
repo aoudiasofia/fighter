@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <string.h> 
 
+
+//fonctions modélisant le tour de l'ordinateur
 void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equipeAdverse,int nbAdversaires, Combattants allies[], int niveau, int nbAllies ) {
     int cible = 0;
     Combattants* adversaires = equipeAdverse->membres;
@@ -30,7 +32,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
     }
 
     // Utiliser un objet (1 chance sur 3)
-    if ((niveau == 2 || niveau == 3) && equipeOrdi->objetUtilise == 0) {
+    if ((niveau == 2 || niveau == 3) && equipeOrdi->objetUtilise == 0) { // pas d'objet si niveau 1
         int chance = rand() % 3;
         if (chance == 0) {
             printf("L'ordinateur utilise l'objet spécial : %s !\n", equipeOrdi->objet.nom);
@@ -49,7 +51,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             printf("La propagation du feu brûle tous les ennemis !\n");
             sleep(1);
             for (int i=0; i<nbAdversaires; i++){
-                if (adversaires[i].points_de_vie_courants > 0) {
+                if (adversaires[i].points_de_vie_courants > 0) { // on verifie que le combattant n'est pas KO
                     printf("%s subit des dégâts de feu !\n", adversaires[i].nom);
                     appliquerDegats(&adversaires[i], joueurActif->competencesSpeciales.valeur);
                     for (int i=0; i<nbAllies; i++){ // on incrémente la jauge de tous les alliés
@@ -72,7 +74,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             printf("Luffy attaque avec son poing élastique 👊 !\n");
             sleep(1);
             //choix de la cible
-            if(adversaires[0].points_de_vie_courants < 0 && adversaires[1].points_de_vie_courants > 0){
+            if(adversaires[0].points_de_vie_courants < 0 && adversaires[1].points_de_vie_courants > 0){ //on verifie pas KO
                 printf("%s (PV : %d)\n", adversaires[1].nom, adversaires[1].points_de_vie_courants);
                 sleep(1);
                 appliquerDegats(&adversaires[1], joueurActif->competencesSpeciales.valeur);
@@ -104,7 +106,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                 }
                 joueurActif->competencesSpeciales.jauge ++; // incrémentation
 
-            } else if(adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants){
+            } else if(adversaires[0].points_de_vie_courants <= adversaires[1].points_de_vie_courants){ 
                 printf("%s (PV : %d)\n", adversaires[0].nom, adversaires[0].points_de_vie_courants);
                 sleep(1);
                 appliquerDegats(&adversaires[0], joueurActif->competencesSpeciales.valeur);
@@ -148,7 +150,7 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
                     printf(" %s (PV : %d) va être soigné\n", allies[i].nom, allies[i].points_de_vie_courants);
                     sleep(1);
                     allies[i].points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
-                    if (allies[i].points_de_vie_courants>allies[i].points_de_vie_max){
+                    if (allies[i].points_de_vie_courants>allies[i].points_de_vie_max){ // on verifie si les points de vie ne dépassent pas le max
                         allies[i].points_de_vie_courants = allies[i].points_de_vie_max;
                     }
                 } else {
@@ -216,18 +218,18 @@ void actionOrdinateur(Combattants* joueurActif, Equipe* equipeOrdi, Equipe* equi
             printf("L'ordinateur utilise la technique spéciale de 🏹✨ Zelda : Lumière Sacrée\n");
             printf("Zelda invoque la lumière divine qui soigne toute son équipe \n");
             sleep(1);
-            for (int i = 0; i < nbAllies; i++) {
+            for (int i = 0; i < nbAllies; i++) { //pour toute l'équipe de Zela 
                 if (allies[i].points_de_vie_courants > 0) {
                     printf(" %s (PV : %d) va être soigné\n", allies[i].nom, allies[i].points_de_vie_courants);
                     sleep(1);
                     allies[i].points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
-                    if (allies[i].points_de_vie_courants>allies[i].points_de_vie_max){
+                    if (allies[i].points_de_vie_courants>allies[i].points_de_vie_max){ // on verifie si les points de vie ne dépassent pas le max
                         allies[i].points_de_vie_courants = allies[i].points_de_vie_max;
                     }
-                    if(joueurActif->points_de_vie_courants > joueurActif->points_de_vie_max){
+                    joueurActif->points_de_vie_courants += joueurActif->competencesSpeciales.valeur; // augmente les points de vie 
+                    if(joueurActif->points_de_vie_courants > joueurActif->points_de_vie_max){   // on verifie si les points de vie ne dépassent pas le max
                         joueurActif->points_de_vie_courants = joueurActif->points_de_vie_max;
                     }
-                    joueurActif->points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
                 } else {
                     joueurActif->points_de_vie_courants += joueurActif->competencesSpeciales.valeur;
                     printf("%d : %s (KO)\n", i, allies[i].nom);

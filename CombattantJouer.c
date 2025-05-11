@@ -1,7 +1,7 @@
 #define COEF 10.0
 #define MAX_JAUGE 90.0
 
-int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) {
+int choisirCombattantAJouer(float jauges[], int vitesses[], int nbCombattants) { // Fonction pour choisir le combattant qui va jouer en fonction de sa jauge vitesse
     int index = -1;
     float jauge_inter = 0.0;
 
